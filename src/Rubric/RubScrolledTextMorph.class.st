@@ -1267,6 +1267,11 @@ RubScrolledTextMorph >> whenTextUpdatedInModel: anAnnouncement [
 ]
 
 { #category : #'accessing - rulers' }
+RubScrolledTextMorph >> withAcceptCancel [
+	self withRulerNamed: #acceptcancel
+]
+
+{ #category : #'accessing - rulers' }
 RubScrolledTextMorph >> withAdornment [
 	self withRulerNamed: #adornment
 ]
