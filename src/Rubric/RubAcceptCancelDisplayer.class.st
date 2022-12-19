@@ -111,11 +111,17 @@ RubAcceptCancelDisplayer >> subscribeOnTextChanges [
 ]
 
 { #category : #events }
-RubAcceptCancelDisplayer >> textChanged: aTextChanged [
+RubAcceptCancelDisplayer >> textChanged [
 
 	self paragraphProvider isReadOnly ifTrue: [ ^ self ].
 	self updateVisibility.
 
+]
+
+{ #category : #events }
+RubAcceptCancelDisplayer >> textChanged: aTextChanged [
+
+	self textChanged.
 ]
 
 { #category : #updating }
