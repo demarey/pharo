@@ -1,0 +1,42 @@
+# This workflow builds Pharo bootstrap out of sources
+
+name: bootstrap
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the $default-branch branch
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Fetch all prerequisites
+        run: bash ./bootstrap/scripts/2-download.sh
+
+      - name: Prepare the bootstrap environment
+        run: bash ./bootstrap/scripts/3-prepare.sh
+    
+      - name: Build the new image
+        run: bash ./bootstrap/scripts/4-build.sh
+
+      - name: Convert Image - 32->64
+        run: |
+          mkdir conversion && cd conversion
+          cp ../bootstrap-cache/*.zip .
+          bash ../bootstrap/scripts/transform_32_into_64.sh
+          mv *-64bit-*.zip ../bootstrap-cache
