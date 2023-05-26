@@ -36,10 +36,5 @@ jobs:
       - name: Build the new image
         run: bash ./bootstrap/scripts/4-build.sh
 
-      - name: Convert Image - 32->64
-        run: |
-          mkdir conversion && cd conversion
-          cp ../bootstrap-cache/*.zip .
-          bash ../bootstrap/scripts/transform_32_into_64.sh
-          mv *-64bit-*.zip ../bootstrap-cache
-          
+      # Add a step to upload artefacts
+      # For now, we do not have enough worker time on GH to enable bootstrap build
