@@ -67,6 +67,11 @@ ClapApplication >> executeOrPrintHelp [
 		ifFalse: [ self execute ]
 ]
 
+{ #category : 'utilities' }
+ClapApplication >> exitFailure: message [
+	^ self context exitFailure: message
+]
+
 { #category : 'execution' }
 ClapApplication >> exitSuccess [
 	^ self context exitSuccess
@@ -84,6 +89,12 @@ ClapApplication >> hasFlag: anIdentifier [
 	^ self context hasFlag: anIdentifier asSymbol
 ]
 
+{ #category : 'printing' }
+ClapApplication >> lineEnding [
+
+	^ OSPlatform current lineEnding
+]
+
 { #category : 'execution' }
 ClapApplication >> outputStreamDo: aBlock [
 	aBlock value: self context stdout
@@ -99,8 +110,17 @@ ClapApplication >> positional: aFlagIdentifier [
 ]
 
 { #category : 'accessing' }
+ClapApplication >> positional: anIdentifier ifAbsent: aBlock [
+	"Execute aBlock if a positional with the identifier is not found."
+	
+	^ [ self positional: anIdentifier ]
+		on: NotFound 
+		do: [ aBlock value ]
+]
+
+{ #category : 'accessing' }
 ClapApplication >> positional: anIdentifier ifPresent: aBlock [
-	"Execute aBlock if a positional with the identifier is found. The positional valu will be passed as first argument of the block"
+	"Execute aBlock if a positional with the identifier is found. The positional value will be passed as first argument of the block"
 	
 	[ aBlock value: (self positional: anIdentifier) ]
 		on: NotFound 
