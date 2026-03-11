@@ -41,15 +41,15 @@ GraphicFontSettings class >> fontSize: aSymbol [
 
 { #category : 'fonts' }
 GraphicFontSettings class >> fontSizeRowSettingsOn: aBuilder [
-	<systemsettings>
 
+	<systemsettings>
 	(aBuilder pickOne: #fontSize)
-		parent: #standardFonts;
+		groupName: #standardFonts;
 		label: 'Predefined Styles';
 		description: '';
-		target: GraphicFontSettings;		
+		target: GraphicFontSettings;
 		selector: #fontSize;
-		default: self fontSize;
+		defaultValue: self fontSize;
 		domainValues: {
 				('Small' -> #small).
 				('Medium' -> #medium).
@@ -102,45 +102,46 @@ GraphicFontSettings class >> setFontsToStyleNamed: aSymbol [
 
 { #category : 'fonts' }
 GraphicFontSettings class >> standardFontsSettingsOn: aBuilder [
+
 	<systemsettings>
 	(aBuilder group: #standardFonts)
 		label: 'Standard fonts';
 		target: StandardFonts;
-		parent: #appearance;
+		groupName: #appearance;
 		order: 4;
 		with: [
-			(aBuilder setting: #defaultFont)
-				order: 1;
-				description: 'The default text font' ;
-				default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 10);
-				dialog: (MessageSend receiver: self selector: #resetAllFontToDefaultButton);
-				label: 'Default'.
-			(aBuilder setting: #codeFont)
-				description: 'The standard code font' ;
-				default: (LogicalFont familyName: 'Source Code Pro' pointSize: 10);
-				label: 'Code'.
-			(aBuilder setting: #listFont)
-				description: 'The standard list font' ;
-				default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 10);
-				label: 'List'.
-			(aBuilder setting: #menuFont)
-				description: 'The standard menu font' ;
-				default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 10);
-				label: 'Menu' .
-			(aBuilder setting: #buttonFont)
-				description: 'The standard button font' ;
-				default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 10);
-				label: 'Button' .
-			(aBuilder setting: #windowTitleFont)
-				description: 'The standard window title font' ;
-				default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 11);
-				label: 'Window title' .
-			(aBuilder setting: #balloonFont)
-				description: 'The standard balloon-help font' ;
-				default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 9);
-				label: 'Balloon-help' .
-			(aBuilder setting: #haloFont)
-				default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 9);
-				description: 'The morphic halo font' ;
-				label: 'Morphic halo' ]
+				(aBuilder setting: #defaultFont)
+					order: 1;
+					description: 'The default text font';
+					defaultValue: (LogicalFont familyName: 'Source Sans Pro' pointSize: 10);
+					dialog: (MessageSend receiver: self selector: #resetAllFontToDefaultButton);
+					label: 'Default'.
+				(aBuilder setting: #codeFont)
+					description: 'The standard code font';
+					defaultValue: (LogicalFont familyName: 'Source Code Pro' pointSize: 10);
+					label: 'Code'.
+				(aBuilder setting: #listFont)
+					description: 'The standard list font';
+					default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 10);
+					label: 'List'.
+				(aBuilder setting: #menuFont)
+					description: 'The standard menu font';
+					default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 10);
+					label: 'Menu'.
+				(aBuilder setting: #buttonFont)
+					description: 'The standard button font';
+					default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 10);
+					label: 'Button'.
+				(aBuilder setting: #windowTitleFont)
+					description: 'The standard window title font';
+					default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 11);
+					label: 'Window title'.
+				(aBuilder setting: #balloonFont)
+					description: 'The standard balloon-help font';
+					default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 9);
+					label: 'Balloon-help'.
+				(aBuilder setting: #haloFont)
+					default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 9);
+					description: 'The morphic halo font';
+					label: 'Morphic halo' ]
 ]

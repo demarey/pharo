@@ -160,16 +160,19 @@ ReRuleManager class >> resetWithInform [
 
 { #category : 'accessing' }
 ReRuleManager class >> ruleProfileSettingsOn: aBuilder [
+
 	<systemsettings>
 	(aBuilder pickOne: #rulesProfile)
 		order: 1;
 		label: 'Select a quality rules profile ';
-		description: 'Select a profile according to your experience with Pharo. This will allow the QualityAssistant to show the rules that are appropiate to your level.';
-		parent: #qualityAssistant;
+		description:
+			'Select a profile according to your experience with Pharo. This will allow the QualityAssistant to show the rules that are appropiate to your level.';
+		groupName: #qualityAssistant;
 		target: self;
-		default: #setDefaultProfile;
-		domainValues: {'Default' translated -> #setDefaultProfile .
-							'Beginner' translated -> #setBeginnerProfile }
+		defaultValue: #setDefaultProfile;
+		domainValues: {
+				('Default' translated -> #setDefaultProfile).
+				('Beginner' translated -> #setBeginnerProfile) }
 ]
 
 { #category : 'settings' }
@@ -185,22 +188,19 @@ ReRuleManager class >> ruleToggleSettingsOn: aBuilder [
 	(aBuilder group: self ruleToggleGroupID)
 		order: 1;
 		label: 'Toggle rules to run';
-		description:
-			'Select which rules do you want to see in the live feedback';
-		parent: #qualityAssistant;
+		description: 'Select which rules do you want to see in the live feedback';
+		groupName: #qualityAssistant;
 		with: [
-			(self visibleRuleClasses groupedBy: [ :class | class group ])
-				keysAndValuesDo: [ :groupName :rules |
-					(aBuilder setting: groupName asSymbol)
-						target: self;
-						selector: #toggleGroupNamed , groupName capitalized;
-						default: true;
-						noOrdering;
-						iconName: #smallConfiguration;
-						label: groupName , ' rules';
-						description: 'select ', groupName , ' rules';
-						with: [ self subSettingsOn: aBuilder with: rules] ] ]
-
+				(self visibleRuleClasses groupedBy: [ :class | class group ]) keysAndValuesDo: [ :groupName :rules |
+							(aBuilder setting: groupName asSymbol)
+								target: self;
+								selector: #toggleGroupNamed , groupName capitalized;
+								defaultValue: true;
+								noOrdering;
+								iconName: #smallConfiguration;
+								label: groupName , ' rules';
+								description: 'select ' , groupName , ' rules';
+								with: [ self subSettingsOn: aBuilder with: rules ] ] ]
 ]
 
 { #category : 'accessing' }
@@ -237,7 +237,7 @@ ReRuleManager class >> subSettingsOn: aBuilder with: rules [
 			  (aBuilder setting: rule enabledSettingID)
 				  selector: #enabled;
 				  target: rule;
-				  default: rule enabledByDefault;
+				  defaultValue: rule enabledByDefault;
 				  label: rule ruleName;
 				  description: rule rationale ]
 ]

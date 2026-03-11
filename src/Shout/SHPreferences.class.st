@@ -268,70 +268,70 @@ SHPreferences class >> setStyleTableNamed: aString [
 
 { #category : 'settings' }
 SHPreferences class >> settingsOn: aBuilder [
+
 	<systemsettings>
-	
 	(aBuilder setting: #'Syntax Highlighting')
 		target: self;
-		"dialog: [ self styleTableRow ];"
-		parentName: #codeBrowsing;
-		description: 'Syntax Highlighting As You Type: Enable syntax highlighting in browsers, debuggers and workspaces and set patterns style.';
+		"dialog: [ self styleTableRow ];"parentName: #codeBrowsing;
+		description:
+			'Syntax Highlighting As You Type: Enable syntax highlighting in browsers, debuggers and workspaces and set patterns style.';
 		selector: #enabled;
-		default: true;
+		defaultValue: true;
 		iconName: #smallConfiguration;
 		with: [
-			(aBuilder pickOne: #styleTableSelector)
-				order: 0;
-				label: 'Syntax Highlight Table';
-				domainValues: self styleTableAvailableStylesMethodsWithNames;
-				description: 'Syntax Highlight stylb;e table selection'.
-			(aBuilder setting: #selectorPatternsStyle)
-				label: 'Selector Patterns';
-				default: self defaultSelectorPatternsStyle;
-				description: 'Selector patterns in method pane'.
-			(aBuilder setting: #errorStyle)
-				default: self defaultErrorStyle;
-				label: 'Syntactic error';
-				description: 'Invalid and undefined code' .
-			(aBuilder setting: #argsStyle)
-				label: 'Parameters';
-				default: self defaultArgsStyle;
-				description: 'Parameters in patterns, message sends, and blocks' .
-			(aBuilder setting: #commentStyle)
-				label: 'Comments';
-				default: self defaultCommentStyle;
-				description: 'Comments in code pane' .
-			(aBuilder setting: #defaultBaseStyle)
-				label: 'Default' ;
-				default: self defaultStyle;
-				description: 'Default style' .
-			(aBuilder setting: #globalVarStyle)
-				label: 'Global variables' ;
-				default: self defaultGlobalVarStyle;
-				description: 'References to global variables, including classes' .
-			(aBuilder setting: #instanceVarStyle)
-				label: 'Instance/class variables' ;
-				default: self defaultInstanceVarStyle;
-				description: 'References to instance and class variables' .
-			(aBuilder setting: #messageSendsStyle)
-				default: self defaultMessageSendsStyle;
-				label: 'Message sends' ;
-				description: 'Message sends' .
-			(aBuilder setting: #primitiveTypesStyle)
-				label: 'Primitive types';
-				default: self defaultPrimitiveTypesStyle;
-				description: 'Literal data' .
-			(aBuilder setting: #reservedWordsStyle)
-				label: 'Reserved words';
-				default: self defaultReservedWordsStyle;
-				description: 'Reserved words of the Smalltalk language' .
-			(aBuilder setting: #syntaxStyle)
-				label: 'Syntax';
-				default: self defaultSyntaxStyle;
-				description: 'Any other syntactic element' .
-			(aBuilder setting: #variableStyle)
-				label: 'Variable';
-				default: self defaultVariableStyle;
-				description: 'Temporary variable']
+				(aBuilder pickOne: #styleTableSelector)
+					order: 0;
+					label: 'Syntax Highlight Table';
+					domainValues: self styleTableAvailableStylesMethodsWithNames;
+					description: 'Syntax Highlight stylb;e table selection'.
+				(aBuilder setting: #selectorPatternsStyle)
+					label: 'Selector Patterns';
+					defaultValue: self defaultSelectorPatternsStyle;
+					description: 'Selector patterns in method pane'.
+				(aBuilder setting: #errorStyle)
+					defaultValue: self defaultErrorStyle;
+					label: 'Syntactic error';
+					description: 'Invalid and undefined code'.
+				(aBuilder setting: #argsStyle)
+					label: 'Parameters';
+					default: self defaultArgsStyle;
+					description: 'Parameters in patterns, message sends, and blocks'.
+				(aBuilder setting: #commentStyle)
+					label: 'Comments';
+					default: self defaultCommentStyle;
+					description: 'Comments in code pane'.
+				(aBuilder setting: #defaultBaseStyle)
+					label: 'Default';
+					default: self defaultStyle;
+					description: 'Default style'.
+				(aBuilder setting: #globalVarStyle)
+					label: 'Global variables';
+					default: self defaultGlobalVarStyle;
+					description: 'References to global variables, including classes'.
+				(aBuilder setting: #instanceVarStyle)
+					label: 'Instance/class variables';
+					default: self defaultInstanceVarStyle;
+					description: 'References to instance and class variables'.
+				(aBuilder setting: #messageSendsStyle)
+					default: self defaultMessageSendsStyle;
+					label: 'Message sends';
+					description: 'Message sends'.
+				(aBuilder setting: #primitiveTypesStyle)
+					label: 'Primitive types';
+					default: self defaultPrimitiveTypesStyle;
+					description: 'Literal data'.
+				(aBuilder setting: #reservedWordsStyle)
+					label: 'Reserved words';
+					default: self defaultReservedWordsStyle;
+					description: 'Reserved words of the Smalltalk language'.
+				(aBuilder setting: #syntaxStyle)
+					label: 'Syntax';
+					default: self defaultSyntaxStyle;
+					description: 'Any other syntactic element'.
+				(aBuilder setting: #variableStyle)
+					label: 'Variable';
+					default: self defaultVariableStyle;
+					description: 'Temporary variable' ]
 ]
 
 { #category : 'settings' }
