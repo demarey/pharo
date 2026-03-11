@@ -101,12 +101,13 @@ TestExecutionService class >> settingsOn: aBuilder [
 	TestExecutionEnvironment organizes settings for all services.
 	It calls this method for every default service class.
 	Subclasses should override it to provide specific configuration options"
+
 	(aBuilder setting: self name)
 		target: self;
-		parent: #sunit;
+		groupName: #sunit;
 		getSelector: #isEnabled;
 		setSelector: #isEnabled:;
-		default: self isEnabledByDefault;
+		defaultValue: self isEnabledByDefault;
 		label: self name;
 		description: self descriptionForSettingsBrowser
 ]

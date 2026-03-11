@@ -281,12 +281,13 @@ WorldState class >> theme [
 
 { #category : 'settings' }
 WorldState class >> worldMenuSettingOn: aBuilder [
+
 	<systemsettings>
 	(aBuilder setting: #desktopMenuPragmaKeyword)
 		label: 'World menu pragma';
 		ghostHelp: 'worldMenu';
-		parent: #morphic;
-		default: 'worldMenu';
+		groupName: #morphic;
+		defaultValue: 'worldMenu';
 		target: self;
 		description: 'Define whitch pragma should be used to build the world menu. To disable the world menu, leave this input empty.'
 ]
@@ -297,15 +298,14 @@ WorldState class >> worldStateDebuggingSettingsOn: aBuilder [
 	<systemsettings>
 	(aBuilder group: #world)
 		label: 'World state';
-		parent: #debugging;
+		groupName: #debugging;
 		description: 'World state debugging settings';
 		with: [
-			(aBuilder setting: #debugShowDamage)
-				label: 'Flash damaged morphic region';
-				target: WorldState;
-				default: false;
-				description:
-					'If true, every changed region of the morphic display will be flashed black before updating.' ]
+				(aBuilder setting: #debugShowDamage)
+					label: 'Flash damaged morphic region';
+					target: WorldState;
+					defaultValue: false;
+					description: 'If true, every changed region of the morphic display will be flashed black before updating.' ]
 ]
 
 { #category : 'hands' }

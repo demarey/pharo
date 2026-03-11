@@ -85,10 +85,10 @@ SpIconPacksFetchPresenter class >> reset [
 
 { #category : 'settings' }
 SpIconPacksFetchPresenter class >> settingsOn: aBuilder [
-	<systemsettings>
 
+	<systemsettings>
 	(aBuilder button: #open)
-		parent: #appearance;
+		groupName: #appearance;
 		order: 2;
 		target: self;
 		label: 'Icons Pack';

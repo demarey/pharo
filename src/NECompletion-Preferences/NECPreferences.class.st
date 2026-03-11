@@ -176,28 +176,27 @@ NECPreferences class >> popupShowWithShortcut: anObject [
 
 { #category : 'settings' }
 NECPreferences class >> settingsOn: aBuilder [
+
 	<systemsettings>
 	(aBuilder setting: #'Code Completion')
 		target: self;
 		parentName: #codeBrowsing;
 		selector: #enabled;
-		default: true;
+		defaultValue: true;
 		iconName: #smallConfiguration;
 		description: 'Enable or disable code completion in browsers, debuggers and workspaces.';
 		with: [
-					| availableControllers availableSorters |
-					availableControllers := self availableEngines.
-					availableControllers size > 1
-						ifTrue: [
+				| availableControllers availableSorters |
+				availableControllers := self availableEngines.
+				availableControllers size > 1 ifTrue: [
 							(aBuilder pickOne: #completionEngineClass)
 								order: -1;
 								label: 'CompletionEngine';
 								target: RubSmalltalkEditor;
 								getSelector: #completionEngineClass;
 								setSelector: #completionEngineClass:;
-								default: (Smalltalk at: #CoCompletionEngine);
-								domainValues: availableControllers ].
-					"availableSorters := self availableSorters.
+								defaultValue: (Smalltalk at: #CoCompletionEngine);
+								domainValues: availableControllers ]. "availableSorters := self availableSorters.
 					availableSorters size > 1
 						ifTrue: [
 							(aBuilder pickOne: #completionSorter)
