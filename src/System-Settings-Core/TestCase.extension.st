@@ -6,7 +6,7 @@ TestCase class >> defaultTimeLimitSettingOn: aBuilder [
 	<systemsettings>
 	(aBuilder group: #sunit)
 		label: 'SUnit';
-		groupName: #pharoSystem;
+		parentName: #pharoSystem;
 		description: 'SUnit';
 		with: [
 				(aBuilder setting: #defaultTimeLimitSecs)

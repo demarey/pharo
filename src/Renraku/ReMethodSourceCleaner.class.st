@@ -42,7 +42,7 @@ ReMethodSourceCleaner class >> compactSourceCodeCleanupSettingsOn: aBuilder [
 		label: 'Keep final dot dot in method body when critique is autofixed';
 		description:
 			'Define if the system keeps an unnecessary final dot at the end of a method body when critique on it is automatically resolved';
-		groupName: #qualityAssistant;
+		parentName: #qualityAssistant;
 		defaultValue: false;
 		target: self
 ]

@@ -138,7 +138,7 @@ ClyFullBrowserMorph class >> settingsGroupOn: aBuilder [
 	<systemsettings>
 	(aBuilder group: #Calypso)
 		label: 'Calypso Browser';
-		groupName: #codeBrowsing;
+		parentName: #codeBrowsing;
 		description: 'Settings related to the browser';
 		with: [
 				(aBuilder setting: #shouldDisplayProjectView)

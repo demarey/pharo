@@ -87,7 +87,7 @@ TaskbarMorph class >> taskbarSettingOn: aBuilder [
 	<systemsettings>
 	(aBuilder setting: #showTaskbar)
 		target: self;
-		groupName: #morphic;
+		parentName: #morphic;
 		label: 'Taskbar';
 		defaultValue: true;
 		description: 'Whether the world''s taskbar should be shown or not.';
@@ -99,7 +99,7 @@ TaskbarMorph class >> taskbarSettingOn: aBuilder [
 						'Whether the world''s taskbar buttons should show previews of the associated window while the mouse is over them.'.
 				(aBuilder setting: #maximumButtons)
 					label: 'Maximum number of tasks to show';
-					default: 100;
+					defaultValue: 100;
 					description: 'By default, the value is ' , self maximumButtonsDefault printString ]
 ]
 

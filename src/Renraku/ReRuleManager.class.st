@@ -167,7 +167,7 @@ ReRuleManager class >> ruleProfileSettingsOn: aBuilder [
 		label: 'Select a quality rules profile ';
 		description:
 			'Select a profile according to your experience with Pharo. This will allow the QualityAssistant to show the rules that are appropiate to your level.';
-		groupName: #qualityAssistant;
+		parentName: #qualityAssistant;
 		target: self;
 		defaultValue: #setDefaultProfile;
 		domainValues: {
@@ -189,7 +189,7 @@ ReRuleManager class >> ruleToggleSettingsOn: aBuilder [
 		order: 1;
 		label: 'Toggle rules to run';
 		description: 'Select which rules do you want to see in the live feedback';
-		groupName: #qualityAssistant;
+		parentName: #qualityAssistant;
 		with: [
 				(self visibleRuleClasses groupedBy: [ :class | class group ]) keysAndValuesDo: [ :groupName :rules |
 							(aBuilder setting: groupName asSymbol)

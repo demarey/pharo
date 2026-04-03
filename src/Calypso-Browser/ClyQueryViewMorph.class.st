@@ -148,7 +148,7 @@ ClyQueryViewMorph class >> settingsDragAndDropDelayOn: aBuilder [
 
 	<systemsettings>
 	(aBuilder setting: #dragAndDropDelay)
-		groupName: #Calypso;
+		parentName: #Calypso;
 		defaultValue: 1500;
 		label: 'DragAndDrop delay (ms)';
 		description: 'Delay to extend the list of item in the target of a drag and drop.

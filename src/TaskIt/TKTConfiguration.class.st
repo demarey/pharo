@@ -169,7 +169,7 @@ TKTConfiguration class >> settingsOn: aBuilder [
 				(aBuilder pickOne: #profileNamed)
 					label: 'Executing Profile';
 					target: self;
-					groupName: #taskitExecution;
+					parentName: #taskitExecution;
 					defaultValue: TKTProfile defaultProfileName;
 					order: 1;
 					domainValues: (self profiles collect: #key) ]

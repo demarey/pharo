@@ -89,7 +89,7 @@ OSWorldRenderer class >> settingsOn: aBuilder [
 
 	<systemsettings>
 	(aBuilder group: #canvasScaleFactorGroup)
-		groupName: #appearance;
+		parentName: #appearance;
 		label: 'World renderer canvas scaling';
 		with: [
 				(aBuilder pickOne: #canvasScaleFactor)

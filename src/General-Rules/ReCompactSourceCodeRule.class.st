@@ -27,7 +27,7 @@ ReCompactSourceCodeRule class >> compactSourceCodeSettingsOn: aBuilder [
 		label: 'Criticize final dot in method body';
 		description:
 			'Define if the system laments about an unnecessary final dot at the end of method body or not when checking for unnecessary separators';
-		groupName: #qualityAssistant;
+		parentName: #qualityAssistant;
 		defaultValue: true;
 		target: self
 ]

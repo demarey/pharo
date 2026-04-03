@@ -20,7 +20,7 @@ PharoCommonTools class >> browsingSettingsOn: aBuilder [
 
 	(aBuilder group: #qualityAssistant)
 		label: 'QualityAssistant';
-		groupName: #codeBrowsing
+		parentName: #codeBrowsing
 ]
 
 { #category : 'class initialization' }

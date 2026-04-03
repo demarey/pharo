@@ -8,7 +8,7 @@ OupsDebuggerSelectionStrategy class >> debuggerSelectionStrategySettingsOn: aBui
 		label: 'Debugger selection strategy';
 		target: self;
 		defaultValue: self defaultDebuggerSelectionStrategy;
-		groupName: #debugging;
+		parentName: #debugging;
 		domainValues: self allSubclasses;
 		description: 'Sets the strategy to open a debugger.'
 ]

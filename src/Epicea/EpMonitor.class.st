@@ -127,7 +127,7 @@ EpMonitor class >> shouldLogMetacelloLoadingSettingOn: aBuilder [
 		label: 'Log Metacello loading';
 		defaultValue: false;
 		description: 'If enable, log the code execution happening during the execution of Metacello loading.';
-		groupName: #epicea;
+		parentName: #epicea;
 		target: self
 ]
 

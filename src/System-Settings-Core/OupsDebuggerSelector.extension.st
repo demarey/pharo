@@ -8,6 +8,6 @@ OupsDebuggerSelector class >> handleDebuggerErrorsSettingsOn: aBuilder [
 		label: 'Handle debugger errors';
 		target: self;
 		defaultValue: false;
-		groupName: #debugging;
+		parentName: #debugging;
 		description: 'Try to debug debugger errors when they occur.'
 ]

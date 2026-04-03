@@ -88,7 +88,7 @@ SpIconPacksFetchPresenter class >> settingsOn: aBuilder [
 
 	<systemsettings>
 	(aBuilder button: #open)
-		groupName: #appearance;
+		parentName: #appearance;
 		order: 2;
 		target: self;
 		label: 'Icons Pack';

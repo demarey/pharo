@@ -35,7 +35,7 @@ UserInterruptHandler class >> settingsOn: aBuilder [
 
 	<systemsettings>
 	(aBuilder setting: #cmdDotEnabled)
-		groupName: #debugging;
+		parentName: #debugging;
 		label: 'Enable cmd-dot interrupt key';
 		target: UserInterruptHandler;
 		defaultValue: true;

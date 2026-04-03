@@ -175,7 +175,7 @@ MethodClassifier class >> settingsOn: aBuilder [
 
 	<systemsettings>
 	(aBuilder setting: #shouldAlwaysClassify)
-		groupName: #Calypso;
+		parentName: #Calypso;
 		label: 'Automatically classify methods instead of using the selected protocol.';
 		defaultValue: false;
 		description:

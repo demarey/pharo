@@ -48,7 +48,7 @@ ShortcutReminder class >> settingsOn: aBuilder [
 	<systemsettings>
 	(aBuilder setting: #'Shortcut Reminder')
 		target: self;
-		groupName: #appearance;
+		parentName: #appearance;
 		defaultValue: true;
 		description:
 			'Shortcut reminder is a reminding tool which pops up when a menu entry which includes a keyboard shortcut is invoked by the mouse instead';
@@ -147,7 +147,7 @@ ShortcutReminder >> customSettingsOn: aBuilder [
 		label: 'Notification limit';
 		description:
 			'Set the limit of how many notifications per menu entry one should be reminded about. Setting the value to -1 means that it will allways remind you';
-		default: self defaultLimit;
+		defaultValue: self defaultLimit;
 		range: (-1 to: 100).
 
 	(aBuilder button: #resetCount)

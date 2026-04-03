@@ -28,7 +28,7 @@ SystemResolver class >> settingsOn: aBuilder [
 
 	<systemsettings>
 	(aBuilder setting: #userLocalDirectory)
-		groupName: #pharoSystem;
+		parentName: #pharoSystem;
 		type: #Directory;
 		target: self;
 		defaultValue: self defaultLocalDirectory;

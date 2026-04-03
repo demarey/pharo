@@ -41,7 +41,7 @@ TaskListMorph class >> taskListSettingOn: aBuilder [
 		label: 'Keep task list open';
 		description: 'Whether the tasklist is closed (and the selected window activated) when the command key is released';
 		defaultValue: false;
-		groupName: #morphic;
+		parentName: #morphic;
 		selector: #keepOpen;
 		target: self
 ]

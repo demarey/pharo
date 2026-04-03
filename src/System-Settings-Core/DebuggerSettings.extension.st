@@ -6,7 +6,7 @@ DebuggerSettings class >> debuggerRankSettingsOn: aBuilder [
 	<systemsettings>
 	(aBuilder group: #debuggers)
 		label: 'Debuggers';
-		groupName: #debugging.
+		parentName: #debugging.
 	self systemDebuggers do: [ :debuggerClass |
 			(aBuilder group: debuggerClass name asSymbol)
 				label: debuggerClass name;
@@ -23,7 +23,7 @@ Lowest priority: 1. Highest priority: 10'.
 						(aBuilder setting: #availableAutomatically)
 							label: 'Available';
 							target: debuggerClass;
-							default: self defaultAvailability;
+							defaultValue: self defaultAvailability;
 							description: '(De)activates the debugger. A deactivated debugger will not be used by the system.' ] ]
 ]
 
@@ -33,7 +33,7 @@ DebuggerSettings class >> generalDebuggingSettingsOn: aBuilder [
 	<systemsettings>
 	(aBuilder group: #debugging)
 		label: 'Debugging';
-		groupName: #tools;
+		parentName: #tools;
 		description: 'All Debugger settings';
 		with: [
 				(aBuilder group: #deprecationHandling)
@@ -51,19 +51,19 @@ DebuggerSettings class >> generalDebuggingSettingsOn: aBuilder [
 								description: 'If true, then a dialog is popup for each deprecated method invocation'.
 							(aBuilder setting: #showWarning)
 								label: 'Transcript message';
-								default: true;
+								defaultValue: true;
 								description: 'If true, then a message is send to the Transcript for each deprecated method invocation' ].
 
 				(aBuilder setting: #logDebuggerStackToFile)
 					label: 'Write message to debug log file when fall into debugger';
 					target: DebugSession;
-					default: false;
+					defaultValue: false;
 					description: 'If true, whenever you fall into a debugger a summary of its stack will be written to a file named'.
 
 
 				(aBuilder setting: #logFileName)
 					label: 'Log file name';
 					target: Smalltalk;
-					default: 'PharoDebug.log';
+					defaultValue: 'PharoDebug.log';
 					description: 'A name of the file, which will be used for logging all errors and notifications' ]
 ]

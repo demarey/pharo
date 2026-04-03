@@ -23,7 +23,7 @@ FreeTypeSystemSettings class >> freeTypeSettingsOn: aBuilder [
 		label: 'Free Type';
 		defaultValue: 'Free type fonts are not available';
 		precondition: [ FT2Library current isAvailable not ];
-		groupName: #appearance;
+		parentName: #appearance;
 		order: 3;
 		description: 'Free type fonts are not available probably because the FT2 plugin is not installed. Check your VM installation'.
 
@@ -37,7 +37,7 @@ FreeTypeSystemSettings class >> freeTypeSettingsOn: aBuilder [
 				(aBuilder setting: #loadFt2Library)
 					order: 1;
 					target: self;
-					default: true;
+					defaultValue: true;
 					label: 'Use FreeType';
 					precondition: [ FT2Library current isNotNil ];
 					description: 'If checked, it allows the usage of Freetype fonts and updates available fonts by scanning the current system'.
@@ -48,12 +48,12 @@ FreeTypeSystemSettings class >> freeTypeSettingsOn: aBuilder [
 					target: FreeTypeSettings;
 					targetSelector: #current;
 					order: 2;
-					default: #LCD;
+					defaultValue: #LCD;
 					domainValues: { #LCD. #CRT }.
 				(aBuilder setting: #updateFontsAtImageStartup)
 					order: 3;
 					target: FreeTypeSettings;
-					default: false;
+					defaultValue: false;
 					label: 'Update fonts at startup';
 					description: 'If true, then the available font list is recomputed at each startup'.
 				(aBuilder group: #advancedSettings)
@@ -66,14 +66,14 @@ FreeTypeSystemSettings class >> freeTypeSettingsOn: aBuilder [
 								targetSelector: #current;
 								label: 'Cache size';
 								description: 'The size of the font cache in KBytes';
-								default: 5000;
+								defaultValue: 5000;
 								range: (0 to: 50000 by: 10).
 							(aBuilder pickOne: #hintingSymbol)
 								label: 'Hinting';
 								description: self glyphShapesHelpText;
 								target: FreeTypeSettings;
 								targetSelector: #current;
-								default: #Light;
+								defaultValue: #Light;
 								domainValues: {
 										('Light' -> #Light).
 										('Normal' -> #Normal).
@@ -82,7 +82,7 @@ FreeTypeSystemSettings class >> freeTypeSettingsOn: aBuilder [
 							(aBuilder range: #glyphContrast)
 								target: FreeTypeSettings;
 								targetSelector: #current;
-								default: 55.0;
+								defaultValue: 55.0;
 								label: 'Glyph contrast';
 								description: 'Change the contrast level for glyphs. This is an integer between 1 and 100';
 								range: (0 to: 100 by: 10) ] ]

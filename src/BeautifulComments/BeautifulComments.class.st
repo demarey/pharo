@@ -24,7 +24,7 @@ BeautifulComments class >> beautifulCommentsSettingsOn: aBuilder [
 
 	<systemsettings>
 	(aBuilder setting: #rendering)
-		groupName: #microdownAndcomments;
+		parentName: #microdownAndcomments;
 		label: 'Enable richtext comments';
 		defaultValue: true;
 		target: self;
@@ -32,7 +32,7 @@ BeautifulComments class >> beautifulCommentsSettingsOn: aBuilder [
 	(aBuilder setting: #captureErrors)
 		groupName: #microdownAndcomments;
 		label: 'Enable rendering error capture';
-		default: true;
+		defaultValue: true;
 		target: self;
 		description: self captureErrorsDocForSetting
 ]

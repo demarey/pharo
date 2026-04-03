@@ -31,7 +31,7 @@ ReExceptionStrategy class >> exceptionStrategySettingsOn: aBuilder [
 	(aBuilder pickOne: #current)
 		label: 'Exception handling strategy';
 		target: self;
-		groupName: #qualityAssistant;
+		parentName: #qualityAssistant;
 		defaultValue: ReLogExceptionStrategy;
 		description: self settingDescription;
 		domainValues: (self allSubclasses collect: [ :c | c strategyTitle -> c ])

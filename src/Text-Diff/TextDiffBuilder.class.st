@@ -67,7 +67,7 @@ TextDiffBuilder class >> differatorSettingsOn: aBuilder [
 	<systemsettings>
 	(aBuilder group: #differator)
 		label: 'Code Diffs';
-		groupName: #codeBrowsing;
+		parentName: #codeBrowsing;
 		description: 'All settings concerned with the computation of diffs';
 		with: [
 				(aBuilder setting: #ignoreLineEndings)

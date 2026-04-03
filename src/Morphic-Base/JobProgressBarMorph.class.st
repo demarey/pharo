@@ -37,7 +37,7 @@ JobProgressBarMorph class >> interruptionSetting: aBuilder [
 		label: 'Make progress bar interruptible';
 		defaultValue: true;
 		description: 'When enabled, add a button to progress bars to interrupt the action when clicked.';
-		groupName: #progress;
+		parentName: #progress;
 		target: self;
 		order: 1
 ]

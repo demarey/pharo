@@ -286,7 +286,7 @@ WorldState class >> worldMenuSettingOn: aBuilder [
 	(aBuilder setting: #desktopMenuPragmaKeyword)
 		label: 'World menu pragma';
 		ghostHelp: 'worldMenu';
-		groupName: #morphic;
+		parentName: #morphic;
 		defaultValue: 'worldMenu';
 		target: self;
 		description: 'Define whitch pragma should be used to build the world menu. To disable the world menu, leave this input empty.'
@@ -298,7 +298,7 @@ WorldState class >> worldStateDebuggingSettingsOn: aBuilder [
 	<systemsettings>
 	(aBuilder group: #world)
 		label: 'World state';
-		groupName: #debugging;
+		parentName: #debugging;
 		description: 'World state debugging settings';
 		with: [
 				(aBuilder setting: #debugShowDamage)

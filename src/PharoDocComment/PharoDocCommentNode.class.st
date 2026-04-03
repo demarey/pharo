@@ -62,7 +62,7 @@ PharoDocCommentNode class >> settingsOn: aBuilder [
 		Example:
 		"3+4 >>> 7."';
 		label: 'Pharo doc comments';
-		groupName: #codeBrowsing
+		parentName: #codeBrowsing
 ]
 
 { #category : 'private' }

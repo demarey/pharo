@@ -30,7 +30,7 @@ OSTouchGestureDetector class >> touchGestureSettingsOn: aBuilder [
 
 	<systemsettings>
 	(aBuilder group: #touchGestures)
-		groupName: #appearance;
+		parentName: #appearance;
 		label: 'Touch Gestures'
 ]
 

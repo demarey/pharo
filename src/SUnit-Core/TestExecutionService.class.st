@@ -104,7 +104,7 @@ TestExecutionService class >> settingsOn: aBuilder [
 
 	(aBuilder setting: self name)
 		target: self;
-		groupName: #sunit;
+		parentName: #sunit;
 		getSelector: #isEnabled;
 		setSelector: #isEnabled:;
 		defaultValue: self isEnabledByDefault;

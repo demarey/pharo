@@ -5,7 +5,7 @@ Delay class >> systemSettingOn: aBuilder [
 
 	<systemsettings>
 	(aBuilder pickOne: #delaySchedulerClass)
-		groupName: #pharoSystem;
+		parentName: #pharoSystem;
 		target: self;
 		label: 'Delay Scheduler';
 		domainValues: DelayNullScheduler allSubclasses;

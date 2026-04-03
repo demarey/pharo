@@ -56,7 +56,7 @@ GrowlMorph class >> growlSettingsOn: aBuilder [
 	<systemsettings>
 	(aBuilder group: #growl)
 		label: 'Popup notification';
-		groupName: #appearance;
+		parentName: #appearance;
 		description: 'All settings concerned with the notifications popup look''n feel';
 		with: [
 				(aBuilder pickOne: #type)

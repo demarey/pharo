@@ -26,7 +26,7 @@ ReSettings class >> resetButtonSettingsOn: aBuilder [
 		order: 10;
 		target: ReRuleManager;
 		label: 'Rule cache';
-		groupName: #qualityAssistant;
+		parentName: #qualityAssistant;
 		description:
 			'Renraku (the engine behind quality rules) caches the rule objects for performance boost. Here you can reset the cache, this may be useful if you''ve implemented a new rule and want to include it.';
 		buttonLabel: 'Reset'
@@ -60,7 +60,7 @@ ReSettings class >> showErrorsSettingsOn: aBuilder [
 		defaultValue: false;
 		label: 'Show errors (dev. only!)';
 		description: 'Signal errors that happen during critique-checking (and related). This should be used by developers.';
-		groupName: #qualityAssistant
+		parentName: #qualityAssistant
 ]
 
 { #category : 'accessing' }

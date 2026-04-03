@@ -6,7 +6,7 @@ ProcessorScheduler class >> idleTimeSettingOn: aBuilder [
 	<systemsettings>
 	(aBuilder setting: #idleTime)
 		target: self;
-		groupName: #pharoSystem;
+		parentName: #pharoSystem;
 		defaultValue: 50000;
 		label: 'Default idle time for the system (microseconds)';
 		description:

@@ -30,7 +30,7 @@ OSTouchScrollDetector class >> minDistanceBeforeDetectionSettingsOn: aBuilder [
 		label: 'Minimal fingers distance crossed (%)';
 		defaultValue: 0.05;
 		description: 'The distance, in percentage of the screen, that both fingers needs to travel before event detection';
-		groupName: #scrollGesture
+		parentName: #scrollGesture
 ]
 
 { #category : 'accessing' }
@@ -52,7 +52,7 @@ OSTouchScrollDetector class >> persistentDirectionSettingsOn: aBuilder [
 		label: 'Persitent scrolling';
 		defaultValue: false;
 		description: 'Should the scroll be keeping his direction after started?';
-		groupName: #scrollGesture
+		parentName: #scrollGesture
 ]
 
 { #category : 'settings' }
@@ -61,7 +61,7 @@ OSTouchScrollDetector class >> touchScrollSettingsOn: aBuilder [
 	<systemsettings>
 	(aBuilder group: #scrollGesture)
 		label: 'Scroll';
-		groupName: #touchGestures
+		parentName: #touchGestures
 ]
 
 { #category : 'preconditions' }
