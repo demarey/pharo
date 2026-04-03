@@ -84,7 +84,7 @@ SettingsBuilder >> button: aString [
 SettingsBuilder >> fixGroups [
 
 	settings 
-		select: [ :setting | setting hasGroup not and: [ setting groupName notNil ] ]
+		select: [ :setting | setting hasParent not and: [ setting groupName notNil ] ]
 		thenDo: [ :setting | setting group: (settings detect: [ :s | s name = setting groupName ]) ]
 ]
 

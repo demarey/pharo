@@ -13,7 +13,7 @@ Class {
 	#tag : 'Base-New'
 }
 
-{ #category : 'initialization' }
+{ #category : 'accessing' }
 ActionSetting >> buttonLabel: aString [
 
 	actionLabel := aString

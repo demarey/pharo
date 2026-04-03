@@ -8,8 +8,6 @@ Class {
 	#instVars : [
 		'getSelector',
 		'setSelector',
-		'readBlock',
-		'writeBlock',
 		'precondition',
 		'type'
 	],
@@ -48,13 +46,6 @@ Setting >> default: aValue [
 ]
 
 { #category : 'accessing' }
-Setting >> defaultTarget [
-
-	"Return the class where the setting was defined"
-	^ self declaration methodClass instanceSide
-]
-
-{ #category : 'accessing' }
 Setting >> getSelector [
 
 	^ getSelector ifNil: [ self name ]
@@ -73,12 +64,6 @@ Setting >> ghostHelp: aString [
 ]
 
 { #category : 'testing' }
-Setting >> hasTarget [
-	
-	^ target isNotNil
-]
-
-{ #category : 'testing' }
 Setting >> ifPreconditionTrue: trueBlock ifFalse: falseBlock [
 
 	precondition ifNil: [ ^ trueBlock value ].
@@ -91,23 +76,6 @@ Setting >> ifPreconditionTrue: trueBlock ifFalse: falseBlock [
 Setting >> precondition: aValuable [
 
 	precondition := aValuable
-]
-
-{ #category : 'accessing' }
-Setting >> readBlock: aBlock [
-
-	readBlock := aBlock 
-]
-
-{ #category : 'accessing' }
-Setting >> realTarget [
-
-	(self hasTarget not and: [ self hasGroup not ]) 
-		ifTrue: [ ^ self defaultTarget ].
-
-	^ target isSymbol
-		  ifTrue: [ Smalltalk globals at: target ifAbsent: [ ] ]
-		  ifFalse: [ target ]
 ]
 
 { #category : 'accessing' }
@@ -155,7 +123,7 @@ Setting >> setToDefault [
 { #category : 'accessing' }
 Setting >> settingReceiver [
 
-	(self hasTarget not and: [ self hasGroup ])
+	(self hasTarget not and: [ self hasParent ])
 		ifTrue: [ ^ self group settingReceiver ifNil: [ self defaultTarget ] ].
 
 	^ self targetSelector
@@ -181,10 +149,4 @@ Setting >> type: aSymbol [
 Setting >> with: aBlock [
 
 	self asParentWhile: aBlock
-]
-
-{ #category : 'accessing' }
-Setting >> writeBlock: aBlock [
-
-	writeBlock := aBlock 
 ]
