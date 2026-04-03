@@ -13,14 +13,14 @@ Class {
 		'label',
 		'description',
 		'order',
-		'groupName',
-		'group',
 		'target',
 		'targetSelector',
 		'defaultValue',
 		'declaration',
 		'writeBlock',
-		'readBlock'
+		'readBlock',
+		'parentName',
+		'parent'
 	],
 	#category : 'System-Settings-Core-Base-New',
 	#package : 'System-Settings-Core',
@@ -98,27 +98,13 @@ AbstractSetting >> dialog: anObject [
 ]
 
 { #category : 'accessing' }
-AbstractSetting >> group [
-
-	^ group
-]
-
-{ #category : 'accessing' }
-AbstractSetting >> group: aSetting [
-
-	group := aSetting
-]
-
-{ #category : 'accessing' }
-AbstractSetting >> groupName [
-	
-	^ groupName
-]
-
-{ #category : 'accessing' }
 AbstractSetting >> groupName: aSymbol [
 	
-	groupName := aSymbol
+	self
+		deprecated: 'Use #groupName; instead. #Pharo14'
+		transformWith: '`@receiver groupName: `@aSymbol' -> '`@receiver parentName: `@aSymbol'.
+
+	self parentName: aSymbol
 ]
 
 { #category : 'testing' }
@@ -136,7 +122,7 @@ AbstractSetting >> hasDefaultValue [
 { #category : 'testing' }
 AbstractSetting >> hasParent [
 	
-	^ group isNotNil
+	^ parent isNotNil
 ]
 
 { #category : 'testing' }
@@ -223,24 +209,38 @@ AbstractSetting >> order: aNumber [
 	order := aNumber
 ]
 
-{ #category : 'old setting builder compatibility' }
-AbstractSetting >> parent: aSymbol [
+{ #category : 'accessing' }
+AbstractSetting >> parent [
 	
-	self 
-		deprecated: 'Use #groupName: instead. #Pharo14'
-		transformWith: '`@receiver parent: `@aSymbol' -> '`@receiver groupName: `@aSymbol'.
-
-	self groupName: aSymbol
+	^ parent
 ]
 
 { #category : 'old setting builder compatibility' }
-AbstractSetting >> parentName: aSymbol [
-	
-	self 
+AbstractSetting >> parent: aSymbol [
+
+	self
 		deprecated: 'Use #groupName: instead. #Pharo14'
 		transformWith: '`@receiver parent: `@aSymbol' -> '`@receiver groupName: `@aSymbol'.
 
-	self groupName: aSymbol
+	self parentName: aSymbol
+]
+
+{ #category : 'accessing' }
+AbstractSetting >> parentGroup: aSettingGroup [
+	
+	parent := aSettingGroup
+]
+
+{ #category : 'accessing' }
+AbstractSetting >> parentName [
+	
+	^ parentName
+]
+
+{ #category : 'accessing' }
+AbstractSetting >> parentName: aSymbol [
+	
+	parentName := aSymbol
 ]
 
 { #category : 'printing' }
@@ -282,9 +282,9 @@ AbstractSetting >> settingIdentifier [
 { #category : 'printing' }
 AbstractSetting >> settingIdentifierOn: aWriteStream [ 
 
-	group
-		ifNotNil: [ group settingIdentifierOn: aWriteStream ]
-		ifNil: [ groupName ifNotNil: [ aWriteStream print: groupName ] ].
+	parent
+		ifNotNil: [ parent settingIdentifierOn: aWriteStream ]
+		ifNil: [ parentName ifNotNil: [ aWriteStream print: parentName ] ].
 	aWriteStream print: self name
 ]
 
