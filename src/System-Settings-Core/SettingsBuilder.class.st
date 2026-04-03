@@ -91,7 +91,7 @@ SettingsBuilder >> fixGroups [
 { #category : 'building' }
 SettingsBuilder >> group: aString [
 
-	^ self addSettingNamed: aString asSymbol class: PhLSettingsGroup
+	^ self addSettingNamed: aString asSymbol class: SettingsGroup
 ]
 
 { #category : 'initialization' }

@@ -3,7 +3,7 @@ I represent a Setting Category. I hold some data on the category.
 I'm identified by my name. Settinng refer to me by this name.
 "
 Class {
-	#name : 'PhLSettingsGroup',
+	#name : 'SettingsGroup',
 	#superclass : 'AbstractSetting',
 	#instVars : [
 		'isActive',
@@ -15,66 +15,66 @@ Class {
 }
 
 { #category : 'private - building' }
-PhLSettingsGroup >> asParentWhile: aBlock [
+SettingsGroup >> asParentWhile: aBlock [
 
 	self builder parent: self while: aBlock
 ]
 
 { #category : 'testing' }
-PhLSettingsGroup >> hasDefaultValue [
+SettingsGroup >> hasDefaultValue [
 
 	"Group should manage its visibily. When done, this methods should check the value of the visibility against the default value"
 	^ true
 ]
 
 { #category : 'initialization' }
-PhLSettingsGroup >> initialize [ 
+SettingsGroup >> initialize [ 
 
 	super initialize.
 	isActivable := false.
 ]
 
 { #category : 'initialization' }
-PhLSettingsGroup >> initializeBlocks [
+SettingsGroup >> initializeBlocks [
 
 	readBlock := [ self settingReceiver perform: self name ].
 	writeBlock := [ :value | self settingReceiver perform: self name , ':' withArguments: { value } ]
 ]
 
 { #category : 'accessing' }
-PhLSettingsGroup >> isActivable [
+SettingsGroup >> isActivable [
 
 	^ isActivable
 ]
 
 { #category : 'accessing' }
-PhLSettingsGroup >> isActivable: aBoolean [
+SettingsGroup >> isActivable: aBoolean [
 
 	isActivable := aBoolean.
 	isActivable ifTrue: [ self initializeBlocks ]
 ]
 
 { #category : 'accessing' }
-PhLSettingsGroup >> isActive [
+SettingsGroup >> isActive [
 
 	^ isActive
 ]
 
 { #category : 'accessing' }
-PhLSettingsGroup >> isActive: aBoolean [
+SettingsGroup >> isActive: aBoolean [
 
 	isActive := aBoolean.
 	self isActivable: true
 ]
 
 { #category : 'testing' }
-PhLSettingsGroup >> isGroup [
+SettingsGroup >> isGroup [
 	
 	^ true
 ]
 
 { #category : 'accessing' }
-PhLSettingsGroup >> realValue [
+SettingsGroup >> realValue [
 	"Tells if the group is active or not.
 	realValue will be used only if readBlock is not nil, in this case we will return block's value"
 
@@ -82,7 +82,7 @@ PhLSettingsGroup >> realValue [
 ]
 
 { #category : 'accessing' }
-PhLSettingsGroup >> realValue: aBoolean [
+SettingsGroup >> realValue: aBoolean [
 
 	"if aBoolean is true, that means that the group is active"
 	
@@ -90,7 +90,7 @@ PhLSettingsGroup >> realValue: aBoolean [
 ]
 
 { #category : 'accessing' }
-PhLSettingsGroup >> settingReceiver [
+SettingsGroup >> settingReceiver [
 
 	^ self targetSelector
 		  ifNil: [ self target ifNil: [ self defaultTarget ]]
@@ -98,7 +98,7 @@ PhLSettingsGroup >> settingReceiver [
 ]
 
 { #category : 'building' }
-PhLSettingsGroup >> with: aBlock [
+SettingsGroup >> with: aBlock [
 
 	self asParentWhile: aBlock
 ]
