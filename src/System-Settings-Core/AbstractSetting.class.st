@@ -2,6 +2,8 @@
 I factor common slots between a Setting and a Setting Category.
 
 Setting name must be unique among all settings managed by the same SettingManager.
+
+A setting may have a parent. A setting's parent is always a SettingGroup.
 "
 Class {
 	#name : 'AbstractSetting',
