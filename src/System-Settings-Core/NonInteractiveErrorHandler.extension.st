@@ -6,7 +6,7 @@ NonInteractiveErrorHandler class >> uiSettingsOn: aBuilder [
 	<systemsettings>
 	(aBuilder group: #nonInteractive)
 		label: 'Headless mode';
-		groupName: #pharoSystem;
+		parentName: #pharoSystem;
 		description: 'Settings related to mode without UI';
 		with: [
 				(aBuilder setting: #snapshotErrorImage)

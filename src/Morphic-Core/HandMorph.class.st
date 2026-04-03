@@ -109,7 +109,7 @@ HandMorph class >> settingsOn: aBuilder [
 
 	<systemsettings>
 	(aBuilder setting: #handMorphsLogEventStats)
-		groupName: #pharoSystem;
+		parentName: #pharoSystem;
 		label: 'HandMorph event statistics';
 		target: self;
 		defaultValue: false;

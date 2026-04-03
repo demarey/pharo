@@ -196,7 +196,7 @@ ClyBrowserMorph class >> settingsNavigationHistoryOn: aBuilder [
 
 	<systemsettings>
 	(aBuilder pickOne: #navigationHistoryClass)
-		groupName: #Calypso;
+		parentName: #Calypso;
 		label: 'Navigation History';
 		domainValues: ClyNavigationHistory withAllSubclasses;
 		defaultValue: self navigationHistoryClass;

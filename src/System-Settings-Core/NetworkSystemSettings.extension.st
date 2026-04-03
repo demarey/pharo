@@ -27,22 +27,22 @@ NetworkSystemSettings class >> networkSettingsOn: aBuilder [
 							(aBuilder setting: #manageHttpProxyExceptions)
 								label: 'Exceptions';
 								target: NetworkSystemSettings;
-								default: '';
+								defaultValue: '';
 								description: 'Domains to avoid to proxy (separated by ;)' ].
 				(aBuilder setting: #useNetworkAuthentification)
 					label: 'Proxy authentication';
 					noOrdering;
-					default: false;
+					defaultValue: false;
 					description:
 						'If checked then you will be able to enter a user name and a password for network authentification. Store  HTTP 1.0 basic authentication credentials. Note: this is an ugly hack that stores your password in your image.  It''s just enought to get you going if you use a firewall that requires authentication';
 					with: [
 							(aBuilder setting: #proxyUser)
 								label: 'User name';
-								default: '';
+								defaultValue: '';
 								description: 'The proxy user name'.
 							(aBuilder setting: #proxyPassword)
 								type: #Password;
-								default: '';
+								defaultValue: '';
 								label: 'Password';
 								description: 'The user password' ] ]
 ]

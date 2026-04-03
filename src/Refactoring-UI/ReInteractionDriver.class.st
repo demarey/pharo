@@ -71,7 +71,7 @@ ReInteractionDriver class >> refactoringsSettingsOn: aBuilder [
 	(aBuilder group: #Refactorings)
 		label: 'Refactorings';
 		description: 'Settings about the refactorings and transformations of Pharo.';
-		groupName: #tools;
+		parentName: #tools;
 		with: [
 				(aBuilder group: #Previews)
 					label: 'Preview changes';

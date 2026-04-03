@@ -215,41 +215,41 @@ NECPreferences class >> settingsOn: aBuilder [
 					label: 'Background Color'.
 				(aBuilder setting: #useEnterToAccept)
 					label: 'Use ENTER to accept a suggested completion';
-					default: self defaultUseEnterToAccept.
+					defaultValue: self defaultUseEnterToAccept.
 				(aBuilder setting: #showCompletionDetails)
 					label: 'Show completion details';
 					description: 'Show detailed information about completion entries';
-					default: self defaultShowCompletionDetails.
+					defaultValue: self defaultShowCompletionDetails.
 				(aBuilder setting: #caseSensitive)
 					label: 'Case Sensitive';
-					default: true;
+					defaultValue: true;
 					description: 'Decide if you want eCompletion to be case sensitive or not.'.
 				(aBuilder setting: #smartCharacters)
 					label: 'Smart Characters';
-					default: true;
+					defaultValue: true;
 					description: 'Decide if you want eCompletion to use smart characters, e.g, to automatically close brackets.'.
 				(aBuilder setting: #smartCharactersWithSingleSpace)
 					label: 'Smart Characters with Single Space';
-					default: '';
+					defaultValue: '';
 					description: 'Enumerate the characters which are automatically inserted with a single space in between.'.
 				(aBuilder setting: #smartCharactersWithDoubleSpace)
 					label: 'Smart Characters with Double Space';
-					default: '[]{}';
+					defaultValue: '[]{}';
 					description: 'Enumerate the characters which are automatically inserted with a two spaces in between.'.
 				(aBuilder setting: #popupShowAutomatic)
-					default: self defaultPopupShowAutomatic;
+					defaultValue: self defaultPopupShowAutomatic;
 					label: 'Popup is automatic'.
 				(aBuilder setting: #popupAutomaticDelay)
-					default: self defaultPopupDelay;
+					defaultValue: self defaultPopupDelay;
 					label: 'Popup appearance delay'.
 				(aBuilder pickOne: #popupShowWithShortcut)
 					target: self;
-					default: self defaultPopupShortcut;
+					defaultValue: self defaultPopupShortcut;
 					label: 'Popup appears with this shortcut';
 					domainValues: self availablePopupShortcuts.
 				(aBuilder setting: #spaceAfterCompletion)
 					target: NECEntry;
-					default: self defaultSpaceAfterCompletion;
+					defaultValue: self defaultSpaceAfterCompletion;
 					label: 'Put a space after completion' ]
 ]
 

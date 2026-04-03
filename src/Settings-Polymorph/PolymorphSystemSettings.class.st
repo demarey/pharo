@@ -123,7 +123,7 @@ PolymorphSystemSettings class >> desktopColorSettingsOn: aBuilder [
 								description: 'This is the second color of your gradient (the first one is given by the "Color" setting'.
 							(aBuilder pickOne: #desktopGradientDirection)
 								label: 'Direction';
-								default: #Vertical;
+								defaultValue: #Vertical;
 								domainValues: { #Horizontal. #Vertical. #Radial }.
 							(aBuilder pickOne: #desktopGradientOrigin)
 								label: 'Origin';
@@ -241,10 +241,10 @@ PolymorphSystemSettings class >> desktopSettingsOn: aBuilder [
 		target: self;
 		noOrdering;
 		with: [
-				(aBuilder setting: #showDesktopLogo)
+				(aBuilder group: #showDesktopLogo)
 					label: 'Show logo';
 					description: 'If true, then a logo if shown on the top left of the desktop';
-					defaultValue: true;
+					isActive: true;
 					with: [
 							(aBuilder setting: #desktopLogoFileName)
 								type: #FilePathEncoder;
@@ -274,7 +274,7 @@ PolymorphSystemSettings class >> labelAreaLayoutSettingsOn: aBuilder [
 	<systemsettings>
 	(aBuilder pickOne: #labelAreaLayout)
 		label: 'Label area layout' translated;
-		groupName: #windows;
+		parentName: #windows;
 		target: UITheme;
 		targetSelector: #currentSettings;
 		defaultValue: #platformDependent;
@@ -292,7 +292,7 @@ PolymorphSystemSettings class >> morphicHaloSettingsOn: aBuilder [
 
 	(aBuilder group: #halo)
 		label: 'Halo';
-		groupName: #morphic;
+		parentName: #morphic;
 		description: 'All halo settings';
 		noOrdering;
 		with: [
@@ -310,13 +310,13 @@ PolymorphSystemSettings class >> morphicHaloSettingsOn: aBuilder [
 						'By default, halos only cycle from front-most submorph to parent (shift key down). This setting enables halos to also cycle from top-level morph down through the submorphs (no shift key)'.
 				(aBuilder setting: #haloEnclosesFullBounds)
 					label: 'Encloses fullbounds';
-					default: false;
+					defaultValue: false;
 					target: HaloMorph;
 					description: 'If true, halos will enclose the full bounds of the target Morph, rather than just the bounds'.
 				(aBuilder setting: #showBoundsInHalo)
 					label: 'Exhibits bounds';
 					target: HaloMorph;
-					default: false;
+					defaultValue: false;
 					description: 'If true, halos will include a fine rectangle around the bounds of the target morph.' ]
 ]
 
@@ -325,7 +325,7 @@ PolymorphSystemSettings class >> morphicMenuSettingsOn: aBuilder [
 
 	(aBuilder group: #menu)
 		label: 'Menus';
-		groupName: #morphic;
+		parentName: #morphic;
 		description: 'All menu settings';
 		target: UITheme;
 		targetSelector: #currentSettings;
@@ -341,11 +341,11 @@ PolymorphSystemSettings class >> morphicMenuSettingsOn: aBuilder [
 					description: 'If true, then menu will without 3D like borders.'.
 				(aBuilder setting: #autoMenuColor)
 					label: 'Computed color';
-					default: false;
+					defaultValue: false;
 					description: 'If true, then the menu color will be computed from world dressing.'.
 				(aBuilder setting: #menuColor)
 					label: 'Menu color';
-					default: (Color
+					defaultValue: (Color
 							 r: 0.823069403714565
 							 g: 0.823069403714565
 							 b: 0.823069403714565
@@ -353,7 +353,7 @@ PolymorphSystemSettings class >> morphicMenuSettingsOn: aBuilder [
 					description: 'The menu color to use if it is not computed automatically (see the ''Computed color'' setting)'.
 				(aBuilder setting: #menuSelectionColor)
 					label: 'Menu selection color';
-					default: (Color
+					defaultValue: (Color
 							 r: 0.38025415444770283
 							 g: 0.6383186705767351
 							 b: 0.8817204301075269
@@ -361,7 +361,7 @@ PolymorphSystemSettings class >> morphicMenuSettingsOn: aBuilder [
 					description: 'The background color of a selected menu item'.
 				(aBuilder setting: #menuSelectionTextColor)
 					description: 'The text color of a selected menu item';
-					default: Color black;
+					defaultValue: Color black;
 					label: 'Menu selection text color' ]
 ]
 
@@ -396,16 +396,16 @@ PolymorphSystemSettings class >> morphicSettingsOn: aBuilder [
 				(aBuilder setting: #editableStringMorph)
 					label: 'String morphs are editable';
 					target: StringMorph;
-					default: false;
+					defaultValue: false;
 					description: 'If true, editing on StringMorph is possible if the shift key is pressed while selecting the morphs.'.
 				(aBuilder setting: #defaultYellowButtonMenuEnabled)
 					label: 'Show default action click menu';
 					target: Morph;
-					default: false;
+					defaultValue: false;
 					description: 'If true, populate an action click menu (default context menu).'.
 				(aBuilder setting: #easySelectingWorld)
 					label: 'Easy selection';
-					default: false;
+					defaultValue: false;
 					target: WorldState;
 					description: 'If true, select multiple Morphs in the world by dragging a selection box around them.' ]
 ]
@@ -440,12 +440,12 @@ PolymorphSystemSettings class >> morphicWindowsSettingsOn: aBuilder [
 					target: UITheme;
 					targetSelector: #currentSettings;
 					label: 'Fast dragging';
-					default: false;
+					defaultValue: false;
 					description:
 						'If true, window drag will be done by dragging an outline of the window instead of the whole window. It is very convenient on a slow machine'.
 				(aBuilder range: #textEntryFieldMinimumWidth)
 					label: 'Text entry dialog width';
-					default: 450;
+					defaultValue: 450;
 					target: TextEntryDialogWindow;
 					selector: #minimumWidth;
 					range: (100 to: 800);
@@ -1275,7 +1275,7 @@ PolymorphSystemSettings class >> windowPositionStrategySettingsOn: aBuilder [
 	<systemsettings>
 	(aBuilder pickOne: #usedStrategy)
 		label: 'Window position strategy';
-		groupName: #windows;
+		parentName: #windows;
 		target: RealEstateAgent;
 		defaultValue: #cascadeFor:initialExtent:world:;
 		domainValues: {

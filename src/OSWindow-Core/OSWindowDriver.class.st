@@ -106,7 +106,7 @@ OSWindowDriver class >> settingsOn: aBuilder [
 	<systemsettings>
 	(aBuilder group: #oswindow)
 		label: 'OSWindow';
-		groupName: #pharoSystem;
+		parentName: #pharoSystem;
 		description: 'OSWindow subsystem';
 		with: [
 				(aBuilder pickOne: #driverClassFromSystem)

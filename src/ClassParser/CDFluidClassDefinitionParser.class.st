@@ -65,7 +65,7 @@ CDFluidClassDefinitionParser class >> settingsOn: aBuilder [
 
 	<systemsettings>
 	(aBuilder setting: #unrestrictedVariableDefinitions)
-		groupName: #codeBrowsing;
+		parentName: #codeBrowsing;
 		defaultValue: false;
 		label: 'Unrestricted Slots/Class Variable Definitions';
 		description: 'EXPERIMENTAL: If true, the system will allow any expression as 

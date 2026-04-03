@@ -50,7 +50,7 @@ OSSDL2BackendWindow class >> settingsOn: aBuilder [
 
 	<systemsettings>
 	(aBuilder setting: #screenScaleFactorBaseDPI)
-		groupName: #pharoSystem;
+		parentName: #pharoSystem;
 		label: 'SDL2 Screen Scale Factor Base DPI';
 		description: 'Set the screen scale factore base DPI for SDL2.';
 		target: self;

@@ -39,7 +39,7 @@ OSTouchRotationDetector class >> minAngleBeforeDetectionSettingsOn: aBuilder [
 		defaultValue: 10;
 		label: 'Minimal angle (degrees)';
 		description: 'Minimal angle, in degrees, that the fingers have to rotate before detection';
-		groupName: #rotationGesture
+		parentName: #rotationGesture
 ]
 
 { #category : 'settings' }
@@ -48,7 +48,7 @@ OSTouchRotationDetector class >> touchRotationSettingsOn: aBuilder [
 	<systemsettings>
 	(aBuilder group: #rotationGesture)
 		label: 'Rotation';
-		groupName: #touchGestures
+		parentName: #touchGestures
 ]
 
 { #category : 'preconditions' }

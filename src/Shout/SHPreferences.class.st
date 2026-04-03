@@ -294,43 +294,43 @@ SHPreferences class >> settingsOn: aBuilder [
 					description: 'Invalid and undefined code'.
 				(aBuilder setting: #argsStyle)
 					label: 'Parameters';
-					default: self defaultArgsStyle;
+					defaultValue: self defaultArgsStyle;
 					description: 'Parameters in patterns, message sends, and blocks'.
 				(aBuilder setting: #commentStyle)
 					label: 'Comments';
-					default: self defaultCommentStyle;
+					defaultValue: self defaultCommentStyle;
 					description: 'Comments in code pane'.
 				(aBuilder setting: #defaultBaseStyle)
 					label: 'Default';
-					default: self defaultStyle;
+					defaultValue: self defaultStyle;
 					description: 'Default style'.
 				(aBuilder setting: #globalVarStyle)
 					label: 'Global variables';
-					default: self defaultGlobalVarStyle;
+					defaultValue: self defaultGlobalVarStyle;
 					description: 'References to global variables, including classes'.
 				(aBuilder setting: #instanceVarStyle)
 					label: 'Instance/class variables';
-					default: self defaultInstanceVarStyle;
+					defaultValue: self defaultInstanceVarStyle;
 					description: 'References to instance and class variables'.
 				(aBuilder setting: #messageSendsStyle)
-					default: self defaultMessageSendsStyle;
+					defaultValue: self defaultMessageSendsStyle;
 					label: 'Message sends';
 					description: 'Message sends'.
 				(aBuilder setting: #primitiveTypesStyle)
 					label: 'Primitive types';
-					default: self defaultPrimitiveTypesStyle;
+					defaultValue: self defaultPrimitiveTypesStyle;
 					description: 'Literal data'.
 				(aBuilder setting: #reservedWordsStyle)
 					label: 'Reserved words';
-					default: self defaultReservedWordsStyle;
+					defaultValue: self defaultReservedWordsStyle;
 					description: 'Reserved words of the Smalltalk language'.
 				(aBuilder setting: #syntaxStyle)
 					label: 'Syntax';
-					default: self defaultSyntaxStyle;
+					defaultValue: self defaultSyntaxStyle;
 					description: 'Any other syntactic element'.
 				(aBuilder setting: #variableStyle)
 					label: 'Variable';
-					default: self defaultVariableStyle;
+					defaultValue: self defaultVariableStyle;
 					description: 'Temporary variable' ]
 ]
 

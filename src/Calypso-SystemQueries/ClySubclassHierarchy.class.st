@@ -89,14 +89,14 @@ ClySubclassHierarchy class >> settingsOn: aBuilder [
 
 	<systemsettings>
 	(aBuilder setting: #isDefaultHierarchyForVariables)
-		groupName: #Calypso;
+		parentName: #Calypso;
 		label: 'Show variables in standard hierarchical order?';
 		defaultValue: true;
 		description: 'If true, FullBrowser will show variables in the order from superclass to subclass';
 		target: self.
 	(aBuilder setting: #isDefaultHierarchyForMethodVisibility)
 		groupName: #Calypso;
-		default: true;
+		defaultValue: true;
 		label: 'Show method visibility classes in standard hierarchical order?';
 		description: 'If true, FullBrowser will show "inherited method" expanded classes in the order from superclass to subclass';
 		target: self

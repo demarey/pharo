@@ -19,7 +19,7 @@ OCProgramNode class >> settingsGroupOn: aBuilder [
 	<systemsettings>
 	(aBuilder group: #codeFormatters)
 		label: 'Code Formatting';
-		groupName: #codeBrowsing
+		parentName: #codeBrowsing
 ]
 
 { #category : '*Formatter-Settings' }
@@ -33,5 +33,5 @@ OCProgramNode class >> settingsOn: aBuilder [
 		order: 0;
 		defaultValue: self defaultFormatter;
 		description: 'To set the default code formatter.';
-		groupName: #codeFormatters
+		parentName: #codeFormatters
 ]

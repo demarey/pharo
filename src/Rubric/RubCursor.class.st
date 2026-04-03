@@ -66,7 +66,7 @@ RubCursor class >> rubricSettingsOn: aBuilder [
 
 	<systemsettings>
 	(aBuilder group: #'Rubric cursor')
-		groupName: #Rubric;
+		parentName: #Rubric;
 		label: 'Cursor';
 		with: [
 				(aBuilder setting: #cursorWithFixedColor)
@@ -81,13 +81,13 @@ RubCursor class >> rubricSettingsOn: aBuilder [
 								label: 'Color' ].
 				(aBuilder range: #defaultWidth)
 					target: self;
-					default: 2;
+					defaultValue: 2;
 					label: 'Width';
 					description: 'Specify the cursor width';
 					range: (1 to: 4).
 				(aBuilder range: #period)
 					target: self;
-					default: 700;
+					defaultValue: 700;
 					label: 'Blinking period';
 					description: 'Specify the cursor blinking period in milliseconds. If it is set to zero then the cursor will not blink';
 					range: (0 to: 1000) ]

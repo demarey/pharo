@@ -117,7 +117,7 @@ OSWindowMorphicEventHandler class >> simulateMiddleClickSettingOn: aBuilder [
 	(aBuilder setting: #simulateMiddleClick)
 		target: self;
 		defaultValue: true;
-		groupName: #morphic;
+		parentName: #morphic;
 		label: 'Simulate Middle Mouse Button';
 		description: 'Sets if we are simulating the middle button by doing Alt + Left button'
 ]

@@ -758,7 +758,7 @@ EFFormatter class >> settingsOn: aBuilder [
 	<systemsettings>
 	(aBuilder group: self settingGroup)
 		target: self;
-		groupName: #codeFormatters;
+		parentName: #codeFormatters;
 		label: 'Enlumineur Pretty Printer';
 		description: 'Settings related to automatic code formatting';
 		with: [

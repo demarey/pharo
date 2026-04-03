@@ -88,7 +88,7 @@ WorldMorph class >> displaySettingsOn: aBuilder [
 	<systemsettings>
 	(aBuilder setting: #displayFullscreen)
 		label: 'Fullscreen mode';
-		groupName: #desktopSettings;
+		parentName: #desktopSettings;
 		target: #WorldMorph;
 		getSelector: #isFullscreen;
 		setSelector: #fullscreen:;
@@ -257,7 +257,7 @@ WorldMorph class >> zoomFactorSettingsOn: aBuilder [
 
 	<systemsettings>
 	(aBuilder pickOne: #zoomFactor)
-		groupName: #appearance;
+		parentName: #appearance;
 		order: 3;
 		defaultValue: 1;
 		label: 'Zoom factor';

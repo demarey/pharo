@@ -119,7 +119,7 @@ SystemProgressMorph class >> settingOn: aBuilder [
 	(aBuilder group: #progress)
 		label: 'Progress Bar';
 		description: 'Progress Bar settings';
-		groupName: #morphic;
+		parentName: #morphic;
 		with: [
 				(aBuilder pickOne: #horizontalPosition)
 					target: self;

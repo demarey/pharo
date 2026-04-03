@@ -111,7 +111,7 @@ ProcessMonitorTestService class >> settingsForFailingStrategyOn: aBuilder [
 
 	(aBuilder setting: #shouldFailTestLeavingProcesses)
 		target: self;
-		groupName: self name;
+		parentName: self name;
 		defaultValue: false;
 		label: 'Fail tests which left running processes';
 		description: 'The test will be failed if it left running processes after the run.
@@ -129,7 +129,7 @@ ProcessMonitorTestService class >> settingsForTerminationStrategyOn: aBuilder [
 
 	(aBuilder setting: #shouldTerminateProcesses)
 		target: self;
-		groupName: self name;
+		parentName: self name;
 		defaultValue: true;
 		label: 'Terminate all processes after the test';
 		description:

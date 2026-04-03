@@ -44,7 +44,7 @@ GraphicFontSettings class >> fontSizeRowSettingsOn: aBuilder [
 
 	<systemsettings>
 	(aBuilder pickOne: #fontSize)
-		groupName: #standardFonts;
+		parentName: #standardFonts;
 		label: 'Predefined Styles';
 		description: '';
 		target: GraphicFontSettings;
@@ -107,7 +107,7 @@ GraphicFontSettings class >> standardFontsSettingsOn: aBuilder [
 	(aBuilder group: #standardFonts)
 		label: 'Standard fonts';
 		target: StandardFonts;
-		groupName: #appearance;
+		parentName: #appearance;
 		order: 4;
 		with: [
 				(aBuilder setting: #defaultFont)
@@ -122,26 +122,26 @@ GraphicFontSettings class >> standardFontsSettingsOn: aBuilder [
 					label: 'Code'.
 				(aBuilder setting: #listFont)
 					description: 'The standard list font';
-					default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 10);
+					defaultValue: (LogicalFont familyName: 'Source Sans Pro' pointSize: 10);
 					label: 'List'.
 				(aBuilder setting: #menuFont)
 					description: 'The standard menu font';
-					default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 10);
+					defaultValue: (LogicalFont familyName: 'Source Sans Pro' pointSize: 10);
 					label: 'Menu'.
 				(aBuilder setting: #buttonFont)
 					description: 'The standard button font';
-					default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 10);
+					defaultValue: (LogicalFont familyName: 'Source Sans Pro' pointSize: 10);
 					label: 'Button'.
 				(aBuilder setting: #windowTitleFont)
 					description: 'The standard window title font';
-					default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 11);
+					defaultValue: (LogicalFont familyName: 'Source Sans Pro' pointSize: 11);
 					label: 'Window title'.
 				(aBuilder setting: #balloonFont)
 					description: 'The standard balloon-help font';
-					default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 9);
+					defaultValue: (LogicalFont familyName: 'Source Sans Pro' pointSize: 9);
 					label: 'Balloon-help'.
 				(aBuilder setting: #haloFont)
-					default: (LogicalFont familyName: 'Source Sans Pro' pointSize: 9);
+					defaultValue: (LogicalFont familyName: 'Source Sans Pro' pointSize: 9);
 					description: 'The morphic halo font';
 					label: 'Morphic halo' ]
 ]

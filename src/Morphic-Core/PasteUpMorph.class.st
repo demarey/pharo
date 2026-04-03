@@ -57,7 +57,7 @@ PasteUpMorph class >> shouldShowWorldMenuSettingOn: aBuilder [
 	(aBuilder setting: #shouldShowWorldMenu)
 		target: self;
 		defaultValue: true;
-		groupName: #morphic;
+		parentName: #morphic;
 		label: 'Show world menu';
 		description: 'Whether the World''s world menu should be shown or not on a click in the World.'
 ]
@@ -78,7 +78,7 @@ PasteUpMorph class >> shouldSwapMenuOpenerButtonsSetting: aBuilder [
 	<systemsettings>
 	(aBuilder setting: #shouldSwapMenuOpenerButtons)
 		label: 'Invert right and left click on world menu in Linux and Windows';
-		groupName: #desktopSettings;
+		parentName: #desktopSettings;
 		target: self;
 		getSelector: #shouldSwapMenuOpenerButtons;
 		setSelector: #shouldSwapMenuOpenerButtons:;

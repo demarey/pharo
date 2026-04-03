@@ -6,7 +6,7 @@ MCFileBasedRepository class >> monticelloSettingsOn: aBuilder [
 	<systemsettings>
 	(aBuilder group: #monticello)
 		label: 'Monticello';
-		groupName: #SCM;
+		parentName: #SCM;
 		description: 'All Monticello settings';
 		with: [
 				(aBuilder setting: #defaultDirectoryName)
