@@ -30,7 +30,7 @@ BeautifulComments class >> beautifulCommentsSettingsOn: aBuilder [
 		target: self;
 		description: self renderingDocForSetting.
 	(aBuilder setting: #captureErrors)
-		groupName: #microdownAndcomments;
+		parentName: #microdownAndcomments;
 		label: 'Enable rendering error capture';
 		defaultValue: true;
 		target: self;

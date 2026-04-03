@@ -31,7 +31,7 @@ FreeTypeSystemSettings class >> freeTypeSettingsOn: aBuilder [
 		iconName: #smallConfiguration;
 		label: 'Free Type';
 		description: '';
-		groupName: #appearance;
+		parentName: #appearance;
 		order: 3;
 		with: [
 				(aBuilder setting: #loadFt2Library)
