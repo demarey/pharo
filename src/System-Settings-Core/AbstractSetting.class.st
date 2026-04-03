@@ -16,7 +16,9 @@ Class {
 		'target',
 		'targetSelector',
 		'defaultValue',
-		'declaration'
+		'declaration',
+		'writeBlock',
+		'readBlock'
 	],
 	#category : 'System-Settings-Core-Base-New',
 	#package : 'System-Settings-Core',
@@ -51,6 +53,13 @@ AbstractSetting >> declaration [
 AbstractSetting >> declaration: aPragma [
 	
 	declaration := aPragma
+]
+
+{ #category : 'accessing' }
+AbstractSetting >> defaultTarget [
+
+	"Return the class where the setting was defined"
+	^ self declaration methodClass instanceSide
 ]
 
 { #category : 'accessing' }
@@ -123,9 +132,15 @@ AbstractSetting >> hasDefaultValue [
 ]
 
 { #category : 'testing' }
-AbstractSetting >> hasGroup [
+AbstractSetting >> hasParent [
 	
 	^ group isNotNil
+]
+
+{ #category : 'testing' }
+AbstractSetting >> hasTarget [
+	
+	^ target isNotNil
 ]
 
 { #category : 'old setting builder compatibility' }
@@ -238,6 +253,23 @@ AbstractSetting >> printOn: aStream [
 ]
 
 { #category : 'accessing' }
+AbstractSetting >> readBlock: aBlock [
+
+	readBlock := aBlock 
+]
+
+{ #category : 'accessing' }
+AbstractSetting >> realTarget [
+
+	(self hasTarget not and: [ self hasParent not ]) 
+		ifTrue: [ ^ self defaultTarget ].
+
+	^ target isSymbol
+		  ifTrue: [ Smalltalk globals at: target ifAbsent: [ ] ]
+		  ifFalse: [ target ]
+]
+
+{ #category : 'accessing' }
 AbstractSetting >> settingIdentifier [
 	"identifier is a string because it can contains many #"
 	
@@ -294,4 +326,10 @@ AbstractSetting >> targetSelector [
 AbstractSetting >> targetSelector: aSelector [
 
 	targetSelector := aSelector
+]
+
+{ #category : 'accessing' }
+AbstractSetting >> writeBlock: aBlock [
+
+	writeBlock := aBlock 
 ]
