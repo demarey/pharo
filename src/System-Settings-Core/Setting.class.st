@@ -124,7 +124,7 @@ Setting >> setToDefault [
 Setting >> settingReceiver [
 
 	(self hasTarget not and: [ self hasParent ])
-		ifTrue: [ ^ self group settingReceiver ifNil: [ self defaultTarget ] ].
+		ifTrue: [ ^ self parent settingReceiver ifNil: [ self defaultTarget ] ].
 
 	^ self targetSelector
 		  ifNil: [ self realTarget ]

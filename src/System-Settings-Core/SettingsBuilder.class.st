@@ -84,8 +84,8 @@ SettingsBuilder >> button: aString [
 SettingsBuilder >> fixGroups [
 
 	settings 
-		select: [ :setting | setting hasParent not and: [ setting groupName notNil ] ]
-		thenDo: [ :setting | setting group: (settings detect: [ :s | s name = setting groupName ]) ]
+		select: [ :setting | setting hasParent not and: [ setting parentName notNil ] ]
+		thenDo: [ :setting | setting parentGroup: (settings detect: [ :s | s name = setting parentName ]) ]
 ]
 
 { #category : 'building' }
@@ -132,8 +132,8 @@ SettingsBuilder >> setParentIfAnyTo: aSetting [
 
 	parents ifNotEmpty: [
 			aSetting
-				group: parents top;
-				groupName: parents top name ]
+				parentName: parents top;
+				parentName: parents top name ]
 ]
 
 { #category : 'building' }
