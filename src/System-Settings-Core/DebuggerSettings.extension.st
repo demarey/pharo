@@ -10,7 +10,7 @@ DebuggerSettings class >> debuggerRankSettingsOn: aBuilder [
 	self systemDebuggers do: [ :debuggerClass |
 			(aBuilder group: debuggerClass name asSymbol)
 				label: debuggerClass name;
-				groupName: #debuggers;
+				parentName: #debuggers;
 				with: [
 						(aBuilder pickOne: #rank)
 							label: 'Priority';

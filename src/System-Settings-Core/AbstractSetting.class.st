@@ -97,16 +97,6 @@ AbstractSetting >> dialog: anObject [
 	self flag: 'What does mean a dialog for a group?'.
 ]
 
-{ #category : 'accessing' }
-AbstractSetting >> groupName: aSymbol [
-	
-	self
-		deprecated: 'Use #groupName; instead. #Pharo14'
-		transformWith: '`@receiver groupName: `@aSymbol' -> '`@receiver parentName: `@aSymbol'.
-
-	self parentName: aSymbol
-]
-
 { #category : 'testing' }
 AbstractSetting >> hasDefault [
 	
@@ -215,12 +205,12 @@ AbstractSetting >> parent [
 	^ parent
 ]
 
-{ #category : 'old setting builder compatibility' }
+{ #category : 'accessing' }
 AbstractSetting >> parent: aSymbol [
-
+	
 	self
-		deprecated: 'Use #groupName: instead. #Pharo14'
-		transformWith: '`@receiver parent: `@aSymbol' -> '`@receiver groupName: `@aSymbol'.
+		deprecated: 'Use #parentName: instead. #Pharo14'
+		transformWith: '`@receiver parent: `@aSymbol' -> '`@receiver parentName: `@aSymbol'.
 
 	self parentName: aSymbol
 ]
