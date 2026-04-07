@@ -105,17 +105,19 @@ PolymorphSystemSettings class >> desktopColor: aColor [
 { #category : 'desktop' }
 PolymorphSystemSettings class >> desktopColorSettingsOn: aBuilder [
 
-	(aBuilder setting: #desktopColor)
+	(aBuilder group: #desktopColorGroup)
 		label: 'Color';
-		description:
-			'This is the only color of your desktop if no gradient is used. If you make use of a gradient, then this color is the first one of the gradient';
-		defaultValue: PharoDarkTheme current desktopColor;
 		with: [
-				(aBuilder setting: #useDesktopGradientFill)
+				(aBuilder setting: #desktopColor)
+					label: 'Color';
+					description: 'This is the only color of your desktop if no gradient is used. If you make use of a gradient, then this color is the first one of the gradient';
+					noOrdering;
+					defaultValue: PharoDarkTheme current desktopColor.
+				(aBuilder group: #useDesktopGradientFill)
+					isActive: false;
 					label: 'Gradient';
 					description: 'If true, then more settings will be available in order to define the desktop background color gradient';
 					noOrdering;
-					defaultValue: false;
 					with: [
 							(aBuilder setting: #desktopGradientFillColor)
 								label: 'Other color';
@@ -251,12 +253,14 @@ PolymorphSystemSettings class >> desktopSettingsOn: aBuilder [
 								description: 'The path of an image file for your own logo, the default pharo logo is used if empty.';
 								label: 'Logo image file name' ].
 				self desktopColorSettingsOn: aBuilder.
-				(aBuilder setting: #desktopImageFileName)
-					type: #FilePathEncoder;
-					defaultValue: '';
-					description: 'The path of an image file which will be imported as a form and displayed as your desktop background';
-					label: 'Desktop background image file name';
+				(aBuilder group: #desktopBackgroundImage)
+					label: 'Desktop background image';
 					with: [
+							(aBuilder setting: #desktopImageFileName)
+								type: #FilePathEncoder;
+								defaultValue: '';
+								description: 'The path of an image file which will be imported as a form and displayed as your desktop background';
+								label: 'Desktop background image file name'.
 							(aBuilder pickOne: #desktopImageLayout)
 								label: 'Layout';
 								description: 'Size and placement of the background image';
