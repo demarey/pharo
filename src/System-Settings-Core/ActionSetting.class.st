@@ -14,6 +14,12 @@ Class {
 }
 
 { #category : 'accessing' }
+ActionSetting >> buttonLabel [
+
+	^ actionLabel
+]
+
+{ #category : 'accessing' }
 ActionSetting >> buttonLabel: aString [
 
 	actionLabel := aString
