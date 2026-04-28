@@ -22,7 +22,7 @@ RangeSetting >> asSettingPresenterWithOwner: aPresenter [
 { #category : 'accessing' }
 RangeSetting >> domainValues [
 
-	^ self range collect: [ :each | MultipleSettingItem newFromNumber: each setting: self ]
+	^ self range collect: [ :each | MultipleSettingItem newFromObject: each setting: self ]
 ]
 
 { #category : 'accessing' }
