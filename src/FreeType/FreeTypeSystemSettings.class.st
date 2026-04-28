@@ -82,7 +82,7 @@ FreeTypeSystemSettings class >> freeTypeSettingsOn: aBuilder [
 							(aBuilder range: #glyphContrast)
 								target: FreeTypeSettings;
 								targetSelector: #current;
-								defaultValue: 55.0;
+								defaultValue: 50;
 								label: 'Glyph contrast';
 								description: 'Change the contrast level for glyphs. This is an integer between 1 and 100';
 								range: (0 to: 100 by: 10) ] ]
