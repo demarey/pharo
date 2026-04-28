@@ -12,6 +12,19 @@ Class {
 	#tag : 'Base-New'
 }
 
+{ #category : 'converting' }
+RangeSetting >> asSettingPresenterWithOwner: aPresenter [
+	"Answer an appropriate <SpPresenter> container for the receiver's value"
+
+	^ aPresenter instantiate: StSettingDropListPresenterItem on: self
+]
+
+{ #category : 'accessing' }
+RangeSetting >> domainValues [
+
+	^ self range collect: [ :each | MultipleSettingItem newFromNumber: each setting: self ]
+]
+
 { #category : 'accessing' }
 RangeSetting >> range [
 	^ range

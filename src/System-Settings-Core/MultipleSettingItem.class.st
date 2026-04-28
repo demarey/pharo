@@ -16,14 +16,6 @@ Class {
 }
 
 { #category : 'instance creation' }
-MultipleSettingItem class >> newFrom: associationOrString [
-
-	^ associationOrString isAssociation 
-		ifTrue: [ self newFromAssociation: associationOrString ]
-		ifFalse: [ self newFromString: associationOrString ]
-]
-
-{ #category : 'instance creation' }
 MultipleSettingItem class >> newFrom: associationOrString setting: aSetting [
 
 	^ associationOrString isAssociation 
@@ -39,6 +31,14 @@ MultipleSettingItem class >> newFromAssociation: anAssociation setting: aSetting
 		value: anAssociation value;
 		setting: aSetting;
 		yourself
+]
+
+{ #category : 'instance creation' }
+MultipleSettingItem class >> newFromNumber: aNumber setting: aSetting [
+
+	^ self 
+		newFromAssociation: aNumber asString -> aNumber
+		setting: aSetting 
 ]
 
 { #category : 'instance creation' }
