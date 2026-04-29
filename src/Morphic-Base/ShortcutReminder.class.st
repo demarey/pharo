@@ -46,13 +46,13 @@ ShortcutReminder class >> enabled: aBoolean [
 ShortcutReminder class >> settingsOn: aBuilder [
 
 	<systemsettings>
-	(aBuilder setting: #'Shortcut Reminder')
-		target: self;
+	(aBuilder group: #'Shortcut Reminder')
 		parentName: #appearance;
-		defaultValue: true;
+		isActive: true;
 		description:
 			'Shortcut reminder is a reminding tool which pops up when a menu entry which includes a keyboard shortcut is invoked by the mouse instead';
-		selector: #enabled;
+		readBlock: [ self enabled ];
+		writeBlock: [ :active | self enabled: active ];
 		iconName: #smallConfiguration;
 		with: [ self defaultReminder customSettingsOn: aBuilder ]
 ]

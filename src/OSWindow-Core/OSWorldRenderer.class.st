@@ -92,10 +92,10 @@ OSWorldRenderer class >> settingsOn: aBuilder [
 		parentName: #appearance;
 		label: 'World renderer canvas scaling';
 		with: [
-				(aBuilder pickOne: #canvasScaleFactor)
+				(aBuilder range: #canvasScaleFactor)
 					label: 'Canvas scale factor';
 					target: self;
-					domainValues: (1 to: 5);
+					range: (1 to: 5);
 					defaultValue: 1.
 				(aBuilder setting: #autoSetCanvasScaleFactor)
 					label: 'Set canvas scale factor automatically';

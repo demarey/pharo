@@ -85,11 +85,11 @@ TaskbarMorph class >> showWindowPreview: aBoolean [
 TaskbarMorph class >> taskbarSettingOn: aBuilder [
 
 	<systemsettings>
-	(aBuilder setting: #showTaskbar)
+	(aBuilder group: #showTaskbar)
 		target: self;
 		parentName: #morphic;
 		label: 'Taskbar';
-		defaultValue: true;
+		isActive: true;
 		description: 'Whether the world''s taskbar should be shown or not.';
 		with: [
 				(aBuilder setting: #showWindowPreview)
