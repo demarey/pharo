@@ -69,15 +69,14 @@ RubCursor class >> rubricSettingsOn: aBuilder [
 		parent: #RubricEditor;
 		label: 'Cursor';
 		with: [
-				(aBuilder setting: #cursorWithFixedColor)
-					target: self;
-					defaultValue: false;
+				(aBuilder group: #cursorWithFixedColor)
+					isActive: false;
 					label: 'Fixed color';
 					with: [
 							(aBuilder setting: #defaultColor)
 								target: self;
 								defaultValue: Color lightGray;
-								description: 'The cursolr color color';
+								description: 'The cursor color color';
 								label: 'Color' ].
 				(aBuilder range: #defaultWidth)
 					target: self;
