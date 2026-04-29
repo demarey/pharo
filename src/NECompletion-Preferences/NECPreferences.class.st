@@ -178,11 +178,11 @@ NECPreferences class >> popupShowWithShortcut: anObject [
 NECPreferences class >> settingsOn: aBuilder [
 
 	<systemsettings>
-	(aBuilder setting: #'Code Completion')
-		target: self;
+	(aBuilder group: #'Code Completion')
 		parentName: #codeBrowsing;
-		selector: #enabled;
-		defaultValue: true;
+		isActive: true;
+		readBlock: [ self enabled ];
+		writeBlock: [ :active | self enabled: active ];
 		iconName: #smallConfiguration;
 		description: 'Enable or disable code completion in browsers, debuggers and workspaces.';
 		with: [

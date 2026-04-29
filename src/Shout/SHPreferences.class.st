@@ -270,13 +270,14 @@ SHPreferences class >> setStyleTableNamed: aString [
 SHPreferences class >> settingsOn: aBuilder [
 
 	<systemsettings>
-	(aBuilder setting: #'Syntax Highlighting')
-		target: self;
-		"dialog: [ self styleTableRow ];"parentName: #codeBrowsing;
+	(aBuilder group: #'Syntax Highlighting')
+		parentName: #codeBrowsing;
 		description:
 			'Syntax Highlighting As You Type: Enable syntax highlighting in browsers, debuggers and workspaces and set patterns style.';
-		selector: #enabled;
-		defaultValue: true;
+		isActive: true;
+		readBlock: [ self enabled ];
+		writeBlock: [ :active | self enabled: active ];
+		target: self;
 		iconName: #smallConfiguration;
 		with: [
 			(aBuilder pickOne: #styleTableSelector)
