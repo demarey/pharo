@@ -9,10 +9,10 @@ NetworkSystemSettings class >> networkSettingsOn: aBuilder [
 		description: 'All network related settings';
 		noOrdering;
 		with: [
-				(aBuilder setting: #useHTTPProxy)
+				(aBuilder group: #useHTTPProxy)
 					label: 'Use HTTP proxy';
 					noOrdering;
-					defaultValue: false;
+					isActive: false;
 					description:
 						'If checked then the you will be able to set a port number and a server name. If unchecked, then no http proxy is used.';
 					with: [
@@ -29,10 +29,10 @@ NetworkSystemSettings class >> networkSettingsOn: aBuilder [
 								target: NetworkSystemSettings;
 								defaultValue: '';
 								description: 'Domains to avoid to proxy (separated by ;)' ].
-				(aBuilder setting: #useNetworkAuthentification)
+				(aBuilder group: #useNetworkAuthentification)
 					label: 'Proxy authentication';
 					noOrdering;
-					defaultValue: false;
+					isActive: false;
 					description:
 						'If checked then you will be able to enter a user name and a password for network authentification. Store  HTTP 1.0 basic authentication credentials. Note: this is an ugly hack that stores your password in your image.  It''s just enought to get you going if you use a firewall that requires authentication';
 					with: [
