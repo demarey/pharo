@@ -37,8 +37,8 @@ SettingsGroup >> initialize [
 { #category : 'initialization' }
 SettingsGroup >> initializeBlocks [
 
-	readBlock := [ self settingReceiver perform: self name ].
-	writeBlock := [ :value | self settingReceiver perform: self name , ':' withArguments: { value } ]
+	readBlock ifNil: [ readBlock := [ self settingReceiver perform: self name ] ].
+	writeBlock ifNil: [ writeBlock := [ :value | self settingReceiver perform: self name , ':' withArguments: { value } ] ]
 ]
 
 { #category : 'accessing' }
