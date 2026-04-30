@@ -102,12 +102,12 @@ TestExecutionService class >> settingsOn: aBuilder [
 	It calls this method for every default service class.
 	Subclasses should override it to provide specific configuration options"
 
-	(aBuilder setting: self name)
+	(aBuilder group: self name)
 		target: self;
 		parentName: #sunit;
-		getSelector: #isEnabled;
-		setSelector: #isEnabled:;
-		defaultValue: self isEnabledByDefault;
+		readBlock: [ self isEnabled ];
+		writeBlock: [ :active | self isEnabled: active ];
+		isActive: self isEnabledByDefault;
 		label: self name;
 		description: self descriptionForSettingsBrowser
 ]
