@@ -66,7 +66,7 @@ RubCursor class >> rubricSettingsOn: aBuilder [
 
 	<systemsettings>
 	(aBuilder group: #'Rubric cursor')
-		parent: #RubricEditor;
+		parentName: #RubricEditor;
 		label: 'Cursor';
 		with: [
 				(aBuilder group: #cursorWithFixedColor)
