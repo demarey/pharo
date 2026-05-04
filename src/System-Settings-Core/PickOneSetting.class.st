@@ -21,5 +21,5 @@ PickOneSetting >> domainValues [
 { #category : 'accessing' }
 PickOneSetting >> domainValues: aCollection [ 
 
-	domainValues := aCollection collect: [ :each | MultipleSettingItem newFrom: each setting: self]
+	domainValues := aCollection collect: [ :each | MultipleSettingItem newFrom: each setting: self] as: Array
 ]
