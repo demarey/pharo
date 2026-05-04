@@ -67,7 +67,7 @@ Setting >> ghostHelp: aString [
 Setting >> ifPreconditionTrue: trueBlock ifFalse: falseBlock [
 
 	precondition ifNil: [ ^ trueBlock value ].
-	precondition value
+	^ precondition value
 		ifTrue: [ trueBlock value ]
 		ifFalse: [ falseBlock value ]
 ]
