@@ -105,36 +105,42 @@ PolymorphSystemSettings class >> desktopColor: aColor [
 { #category : 'desktop' }
 PolymorphSystemSettings class >> desktopColorSettingsOn: aBuilder [
 
-	(aBuilder group: #desktopColorGroup) 
+	(aBuilder group: #desktopColorGroup)
 		label: 'Desktop Color';
 		target: self;
 		with: [
-			(aBuilder setting: #desktopColor) 
-				label: 'Color';
-				description: 'This is the only color of your desktop if no gradient is used. If you make use of a gradient, then this color is the first one of the gradient';
-				default: PharoDarkTheme current desktopColor.
+				(aBuilder setting: #desktopColor)
+					label: 'Color';
+					description:
+						'This is the only color of your desktop if no gradient is used. If you make use of a gradient, then this color is the first one of the gradient';
+					defaultValue: PharoDarkTheme current desktopColor.
 
-			(aBuilder setting: #useDesktopGradientFill) label: 'Gradient';
-				description: 'If true, then more settings will be available in order to define the desktop background color gradient';
-				noOrdering;
-				default: false;
-				with: [(aBuilder setting: #desktopGradientFillColor) label: 'Other color';
-						default: PharoDarkTheme current desktopColor;
-						description: 'This is the second color of your gradient (the first one is given by the "Color" setting'.
-					(aBuilder pickOne: #desktopGradientDirection) label: 'Direction';
-						default: #Vertical;
-						domainValues: {#Horizontal. #Vertical. #Radial}.
-					(aBuilder pickOne: #desktopGradientOrigin) label: 'Origin';
-						domainValues: {
-							'Top left' translated -> #topLeft.
-							'Top' translated -> #topCenter.
-							'Top right' translated -> #topRight.
-							'Right' translated -> #rightCenter.
-							'Bottom right' translated -> #bottomRight.
-							'Bottom' translated -> #bottomCenter.
-							'Bottom left' translated -> #bottomLeft.
-							'Left' translated -> #leftCenter.
-							'Center' translated -> #center} ] ]
+				(aBuilder group: #useDesktopGradientFill)
+					label: 'Gradient';
+					description: 'If true, then more settings will be available in order to define the desktop background color gradient';
+					noOrdering;
+					isActive: false;
+					with: [
+							(aBuilder setting: #desktopGradientFillColor)
+								label: 'Other color';
+								defaultValue: PharoDarkTheme current desktopColor;
+								description: 'This is the second color of your gradient (the first one is given by the "Color" setting'.
+							(aBuilder pickOne: #desktopGradientDirection)
+								label: 'Direction';
+								defaultValue: #Vertical;
+								domainValues: { #Horizontal. #Vertical. #Radial }.
+							(aBuilder pickOne: #desktopGradientOrigin)
+								label: 'Origin';
+								domainValues: {
+										('Top left' translated -> #topLeft).
+										('Top' translated -> #topCenter).
+										('Top right' translated -> #topRight).
+										('Right' translated -> #rightCenter).
+										('Bottom right' translated -> #bottomRight).
+										('Bottom' translated -> #bottomCenter).
+										('Bottom left' translated -> #bottomLeft).
+										('Left' translated -> #leftCenter).
+										('Center' translated -> #center) } ] ]
 ]
 
 { #category : 'desktop' }
@@ -203,20 +209,20 @@ PolymorphSystemSettings class >> desktopImageSettingsOn: aBuilder [
 		label: 'Desktop background image';
 		target: self;
 		with: [
-			(aBuilder setting: #desktopImageFileName)
-				type: #FilePathEncoder;
-				default: '';
-				description: 'The path of an image file which will be imported as a form and displayed as your desktop background';
-				label: 'Image file name'.
-			(aBuilder pickOne: #desktopImageLayout) label: 'Layout';
-				 description: 'Size and placement of the background image';
-				 target: self;
-				 order: 0;
-				 default: #scaled;
-				 domainValues: #(#center #tiled #scaled #scaledAspect
-		#topLeft #topCenter #topRight #rightCenter
-		#bottomRight #bottomCenter #bottomLeft #leftCenter).
-			]
+				(aBuilder setting: #desktopImageFileName)
+					type: #FilePathEncoder;
+					defaultValue: '';
+					description: 'The path of an image file which will be imported as a form and displayed as your desktop background';
+					label: 'Image file name'.
+				(aBuilder pickOne: #desktopImageLayout)
+					label: 'Layout';
+					description: 'Size and placement of the background image';
+					target: self;
+					order: 0;
+					defaultValue: #scaled;
+					domainValues:
+						#( #center #tiled #scaled #scaledAspect #topLeft #topCenter #topRight #rightCenter #bottomRight #bottomCenter #bottomLeft
+						   #leftCenter ) ]
 ]
 
 { #category : 'desktop' }
@@ -262,20 +268,20 @@ PolymorphSystemSettings class >> desktopSettingsOn: aBuilder [
 		target: self;
 		noOrdering;
 		with: [
-			(aBuilder group: #desktopLogo)
-				label: 'Logo' ;
-				target: self;
-				with: [
-					(aBuilder setting: #showDesktopLogo)
-						label: 'Show logo' ;
-						description: 'If true, then a logo if shown on the top left of the desktop' ;
-						default: true.
-					(aBuilder setting: #desktopLogoFileName)
-						type: #FilePathEncoder;
-						description: 'The path of an image file for your own logo, the default pharo logo is used if empty.' ;
-						label: 'Logo image file name' ].
-			self desktopColorSettingsOn: aBuilder.	
-			self desktopImageSettingsOn: aBuilder ]
+				(aBuilder group: #desktopLogo)
+					label: 'Logo';
+					target: self;
+					with: [
+							(aBuilder setting: #showDesktopLogo)
+								label: 'Show logo';
+								description: 'If true, then a logo if shown on the top left of the desktop';
+								defaultValue: true.
+							(aBuilder setting: #desktopLogoFileName)
+								type: #FilePathEncoder;
+								description: 'The path of an image file for your own logo, the default pharo logo is used if empty.';
+								label: 'Logo image file name' ].
+				self desktopColorSettingsOn: aBuilder.
+				self desktopImageSettingsOn: aBuilder ]
 ]
 
 { #category : 'morphic' }
