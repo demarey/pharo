@@ -319,19 +319,19 @@ SHPreferences class >> settingsOn: aBuilder [
 					description: 'Message sends'.
 				(aBuilder setting: #primitiveTypesStyle)
 					label: 'Primitive types';
-					default: self defaultPrimitiveTypesStyle;
+					defaultValue: self defaultPrimitiveTypesStyle;
 					description: 'Literal data'.
 				(aBuilder setting: #reservedWordsStyle)
 					label: 'Reserved words';
-					default: self defaultReservedWordsStyle;
+					defaultValue: self defaultReservedWordsStyle;
 					description: 'Reserved words of the Smalltalk language'.
 				(aBuilder setting: #syntaxStyle)
 					label: 'Syntax';
-					default: self defaultSyntaxStyle;
+					defaultValue: self defaultSyntaxStyle;
 					description: 'Any other syntactic element'.
 				(aBuilder setting: #variableStyle)
 					label: 'Variable';
-					default: self defaultVariableStyle;
+					defaultValue: self defaultVariableStyle;
 					description: 'Temporary variable' ]
 ]
 

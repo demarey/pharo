@@ -240,16 +240,16 @@ NECPreferences class >> settingsOn: aBuilder [
 					defaultValue: self defaultPopupShowAutomatic;
 					label: 'Popup is automatic'.
 				(aBuilder setting: #popupAutomaticDelay)
-					default: self defaultPopupDelay;
+					defaultValue: self defaultPopupDelay;
 					label: 'Popup appearance delay'.
 				(aBuilder pickOne: #popupShowWithShortcut)
 					target: self;
-					default: self defaultPopupShortcut;
+					defaultValue: self defaultPopupShortcut;
 					label: 'Popup appears with this shortcut';
 					domainValues: self availablePopupShortcuts.
 				(aBuilder setting: #spaceAfterCompletion)
 					target: CoEntry;
-					default: self defaultSpaceAfterCompletion;
+					defaultValue: self defaultSpaceAfterCompletion;
 					label: 'Put a space after completion' ]
 ]
 
