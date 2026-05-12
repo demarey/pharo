@@ -18,6 +18,12 @@ Class {
 	#tag : 'Base-New'
 }
 
+{ #category : 'accessing' }
+SettingsManager class >> defaultPreferencesFileReference [
+
+	^ StartupPreferencesLoader preferencesVersionFolder / 'system-settings.ston'
+]
+
 { #category : 'instance creation' }
 SettingsManager class >> forPragmaNamed: aSymbol [
 
@@ -271,6 +277,12 @@ SettingsManager >> updateSettings: aLitOfSettings with: aListOfStoredSettings [
 SettingsManager >> updateSettingsWith: aListOfStoredSettings [
 
 	self updateSettings: settings with: aListOfStoredSettings
+]
+
+{ #category : 'configuring' }
+SettingsManager >> useDefaultPreferencesFile [
+
+	self settingsFile: self class defaultPreferencesFileReference
 ]
 
 { #category : 'private - storing' }
