@@ -224,7 +224,7 @@ ReRuleManager class >> setBeginnerProfile [
 { #category : 'accessing' }
 ReRuleManager class >> setDefaultProfile [
 
-	self visibleRuleClasses do: [ :rule | rule enabled: rule isDefaultRule ].
+	self visibleRuleClasses do: [ :ruleClass | ruleClass enabled: ruleClass isDefaultRule ].
 	self reset
 ]
 
@@ -290,6 +290,19 @@ ReRuleManager >> classRules [
 	^ self allRules select: [ :rule | rule class checksClass ]
 ]
 
+{ #category : 'accessing' }
+ReRuleManager >> groupedRules [
+
+	| rulesByGroup |
+	(self visibleRuleClasses collect: [ :aClass |
+		          aClass new ]) sorted: [ :a :b | a ruleName < b ruleName ].
+	rulesByGroup := (rules groupedBy: [:each | each group]) associations collect: [ :as |
+		                CBCritiquesRuleGroup
+			                named: as key
+			                rules: as value ].
+	^ rulesByGroup
+]
+
 { #category : 'initialization' }
 ReRuleManager >> initializeRules: aCollection [
 
@@ -312,4 +325,17 @@ ReRuleManager >> nodeRules [
 ReRuleManager >> packageRules [
 
 	^ self allRules select: [ :rule | rule class checksPackage ]
+]
+
+{ #category : 'accessing' }
+ReRuleManager >> sortedGroupedRules [
+
+	^ self groupedRules sort: [ :a :b | a name < b name ]
+]
+
+{ #category : 'accessing' }
+ReRuleManager >> visibleRuleClasses [
+
+	^ (ReAbstractRule withAllSubclasses select: [:each | each isVisible])
+	"remove this in the future ->", RBLintRule withAllSubclasses select: [:each | each isVisible]
 ]
